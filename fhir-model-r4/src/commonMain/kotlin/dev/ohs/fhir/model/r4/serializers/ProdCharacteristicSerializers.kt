@@ -173,11 +173,17 @@ internal object ProdCharacteristicSerializer : KSerializer<ProdCharacteristic> {
       shape = R4String.of(shape, _shape),
       color =
         (kotlin.collections.List(maxOf(color?.size ?: 0, _color?.size ?: 0)) { index ->
-          R4String.of(color?.getOrNull(index)?.let { it }, _color?.getOrNull(index))!!
+          R4String.of(color?.getOrNull(index)?.let { it }, _color?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'color' at index $index on ProdCharacteristic has neither a value nor an id/extension"""
+            )
         }),
       imprint =
         (kotlin.collections.List(maxOf(imprint?.size ?: 0, _imprint?.size ?: 0)) { index ->
-          R4String.of(imprint?.getOrNull(index)?.let { it }, _imprint?.getOrNull(index))!!
+          R4String.of(imprint?.getOrNull(index)?.let { it }, _imprint?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'imprint' at index $index on ProdCharacteristic has neither a value nor an id/extension"""
+            )
         }),
       image = image ?: listOf(),
       scoring = scoring,

@@ -281,18 +281,27 @@ internal object TimingRepeatSerializer : KSerializer<Timing.Repeat> {
           Enumeration.of(
             dayOfWeek?.getOrNull(index)?.let { Timing.DaysOfWeek.fromCode(it) },
             _dayOfWeek?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'dayOfWeek' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+            )
         }),
       timeOfDay =
         (kotlin.collections.List(maxOf(timeOfDay?.size ?: 0, _timeOfDay?.size ?: 0)) { index ->
-          Time.of(timeOfDay?.getOrNull(index)?.let { it }, _timeOfDay?.getOrNull(index))!!
+          Time.of(timeOfDay?.getOrNull(index)?.let { it }, _timeOfDay?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'timeOfDay' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+            )
         }),
       `when` =
         (kotlin.collections.List(maxOf(`when`?.size ?: 0, _when?.size ?: 0)) { index ->
           Enumeration.of(
             `when`?.getOrNull(index)?.let { Timing.EventTiming.fromCode(it) },
             _when?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'when' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+            )
         }),
       offset = UnsignedInt.of(offset, _offset),
     )
@@ -485,7 +494,10 @@ internal object TimingSerializer : KSerializer<Timing> {
           DateTime.of(
             event?.getOrNull(index)?.let { it?.let { FhirDateTime.fromString(it) } },
             _event?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'event' at index $index on Timing has neither a value nor an id/extension"""
+            )
         }),
       repeat = repeat,
       code = code,

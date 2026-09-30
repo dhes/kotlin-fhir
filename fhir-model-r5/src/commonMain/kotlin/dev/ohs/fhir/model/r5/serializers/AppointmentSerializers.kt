@@ -430,7 +430,10 @@ internal object AppointmentRecurrenceTemplateSerializer :
           Date.of(
             occurrenceDate?.getOrNull(index)?.let { it?.let { FhirDate.fromString(it) } },
             _occurrenceDate?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'occurrenceDate' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+            )
         }),
       weeklyTemplate = weeklyTemplate,
       monthlyTemplate = monthlyTemplate,
@@ -441,7 +444,10 @@ internal object AppointmentRecurrenceTemplateSerializer :
           Date.of(
             excludingDate?.getOrNull(index)?.let { it?.let { FhirDate.fromString(it) } },
             _excludingDate?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'excludingDate' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+            )
         }),
       excludingRecurrenceId =
         (kotlin.collections.List(
@@ -450,7 +456,10 @@ internal object AppointmentRecurrenceTemplateSerializer :
           PositiveInt.of(
             excludingRecurrenceId?.getOrNull(index)?.let { it },
             _excludingRecurrenceId?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'excludingRecurrenceId' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+            )
         }),
     )
   }

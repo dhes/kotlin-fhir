@@ -966,7 +966,10 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
       relatedArtifact = relatedArtifact ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+            )
         }),
       kind = Enumeration.of(kind?.let { RequestResourceTypes.fromCode(it) }, _kind),
       profile = Canonical.of(profile, _profile),
@@ -998,7 +1001,10 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
           Canonical.of(
             specimenRequirement?.getOrNull(index)?.let { it },
             _specimenRequirement?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'specimenRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+            )
         }),
       observationRequirement =
         (kotlin.collections.List(
@@ -1007,7 +1013,10 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
           Canonical.of(
             observationRequirement?.getOrNull(index)?.let { it },
             _observationRequirement?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'observationRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+            )
         }),
       observationResultRequirement =
         (kotlin.collections.List(
@@ -1016,7 +1025,10 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
           Canonical.of(
             observationResultRequirement?.getOrNull(index)?.let { it },
             _observationResultRequirement?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'observationResultRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+            )
         }),
       transform = Canonical.of(transform, _transform),
       dynamicValue = dynamicValue ?: listOf(),

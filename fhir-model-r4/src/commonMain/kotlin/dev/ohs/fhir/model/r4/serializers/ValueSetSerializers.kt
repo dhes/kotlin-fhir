@@ -308,7 +308,10 @@ internal object ValueSetComposeIncludeSerializer : KSerializer<ValueSet.Compose.
       filter = filter ?: listOf(),
       valueSet =
         (kotlin.collections.List(maxOf(valueSet?.size ?: 0, _valueSet?.size ?: 0)) { index ->
-          Canonical.of(valueSet?.getOrNull(index)?.let { it }, _valueSet?.getOrNull(index))!!
+          Canonical.of(valueSet?.getOrNull(index)?.let { it }, _valueSet?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'valueSet' at index $index on ValueSet.Compose.Include has neither a value nor an id/extension"""
+            )
         }),
     )
   }

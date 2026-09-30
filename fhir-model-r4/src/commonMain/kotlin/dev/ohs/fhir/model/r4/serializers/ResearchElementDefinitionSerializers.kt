@@ -1056,7 +1056,10 @@ internal object ResearchElementDefinitionSerializer : KSerializer<ResearchElemen
       description = Markdown.of(description, _description),
       comment =
         (kotlin.collections.List(maxOf(comment?.size ?: 0, _comment?.size ?: 0)) { index ->
-          R4String.of(comment?.getOrNull(index)?.let { it }, _comment?.getOrNull(index))!!
+          R4String.of(comment?.getOrNull(index)?.let { it }, _comment?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'comment' at index $index on ResearchElementDefinition has neither a value nor an id/extension"""
+            )
         }),
       useContext = useContext ?: listOf(),
       jurisdiction = jurisdiction ?: listOf(),
@@ -1074,7 +1077,10 @@ internal object ResearchElementDefinitionSerializer : KSerializer<ResearchElemen
       relatedArtifact = relatedArtifact ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on ResearchElementDefinition has neither a value nor an id/extension"""
+            )
         }),
       type =
         Enumeration.of(

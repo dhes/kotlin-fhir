@@ -410,7 +410,10 @@ internal object ObservationDefinitionComponentSerializer :
               ObservationDefinition.ObservationDataType.fromCode(it)
             },
             _permittedDataType?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'permittedDataType' at index $index on ObservationDefinition.Component has neither a value nor an id/extension"""
+            )
         }),
       permittedUnit = permittedUnit ?: listOf(),
       qualifiedValue = qualifiedValue ?: listOf(),
@@ -1006,12 +1009,18 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
           Canonical.of(
             derivedFromCanonical?.getOrNull(index)?.let { it },
             _derivedFromCanonical?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'derivedFromCanonical' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+            )
         }),
       derivedFromUri =
         (kotlin.collections.List(maxOf(derivedFromUri?.size ?: 0, _derivedFromUri?.size ?: 0)) {
           index ->
-          Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))!!
+          Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'derivedFromUri' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+            )
         }),
       subject = subject ?: listOf(),
       performerType = performerType,
@@ -1030,7 +1039,10 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
               ObservationDefinition.ObservationDataType.fromCode(it)
             },
             _permittedDataType?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'permittedDataType' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+            )
         }),
       multipleResultsAllowed = R5Boolean.of(multipleResultsAllowed, _multipleResultsAllowed),
       bodySite = bodySite,

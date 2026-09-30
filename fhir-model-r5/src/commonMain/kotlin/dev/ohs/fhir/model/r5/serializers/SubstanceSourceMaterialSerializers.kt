@@ -1108,7 +1108,10 @@ internal object SubstanceSourceMaterialSerializer : KSerializer<SubstanceSourceM
           R5String.of(
             parentSubstanceName?.getOrNull(index)?.let { it },
             _parentSubstanceName?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'parentSubstanceName' at index $index on SubstanceSourceMaterial has neither a value nor an id/extension"""
+            )
         }),
       countryOfOrigin = countryOfOrigin ?: listOf(),
       geographicalLocation =
@@ -1118,7 +1121,10 @@ internal object SubstanceSourceMaterialSerializer : KSerializer<SubstanceSourceM
           R5String.of(
             geographicalLocation?.getOrNull(index)?.let { it },
             _geographicalLocation?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'geographicalLocation' at index $index on SubstanceSourceMaterial has neither a value nor an id/extension"""
+            )
         }),
       developmentStage = developmentStage,
       fractionDescription = fractionDescription ?: listOf(),

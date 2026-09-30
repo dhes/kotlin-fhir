@@ -275,7 +275,10 @@ internal object HealthcareServiceAvailableTimeSerializer :
           Enumeration.of(
             daysOfWeek?.getOrNull(index)?.let { HealthcareService.DaysOfWeek.fromCode(it) },
             _daysOfWeek?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'daysOfWeek' at index $index on HealthcareService.AvailableTime has neither a value nor an id/extension"""
+            )
         }),
       allDay = R4Boolean.of(allDay, _allDay),
       availableStartTime = Time.of(availableStartTime, _availableStartTime),

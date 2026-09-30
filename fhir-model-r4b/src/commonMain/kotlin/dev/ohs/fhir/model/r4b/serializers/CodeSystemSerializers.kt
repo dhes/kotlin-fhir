@@ -164,7 +164,10 @@ internal object CodeSystemFilterSerializer : KSerializer<CodeSystem.Filter> {
           Enumeration.of(
             `operator`?.getOrNull(index)?.let { CodeSystem.FilterOperator.fromCode(it) },
             _operator?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'operator' at index $index on CodeSystem.Filter has neither a value nor an id/extension"""
+            )
         }),
       `value` =
         R4bString.of(`value`, _value)

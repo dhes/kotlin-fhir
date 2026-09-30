@@ -97,19 +97,23 @@ class ModelConstructionHelpers(val codegenContext: CodegenContext) {
           )
           if (element.isExtensibleBinding) {
             add(
-              "  %T.of<%T>(%N?.getOrNull(index), %N?.getOrNull(index))!!\n",
+              "  %T.of<%T>(%N?.getOrNull(index), %N?.getOrNull(index)) ?: throw %T(%P)\n",
               wrapperClass,
               enumClass,
               propertyName,
               elementPropertyName,
+              serializationExceptionClassName,
+              "Element '$propertyName' at index \$index on $modelDisplayName has neither a value nor an id/extension",
             )
           } else {
             add(
-              "  %T.of(%N?.getOrNull(index)?.let·{ %T.fromCode(it) }, %N?.getOrNull(index))!!\n",
+              "  %T.of(%N?.getOrNull(index)?.let·{ %T.fromCode(it) }, %N?.getOrNull(index)) ?: throw %T(%P)\n",
               wrapperClass,
               propertyName,
               enumClass,
               elementPropertyName,
+              serializationExceptionClassName,
+              "Element '$propertyName' at index \$index on $modelDisplayName has neither a value nor an id/extension",
             )
           }
           add("})")
@@ -125,7 +129,12 @@ class ModelConstructionHelpers(val codegenContext: CodegenContext) {
             propertyName,
           )
           fhirPathType.addCodeToDecodeWireVarToModel(this, modelClassName.packageName, "it")
-          add(" }, %N?.getOrNull(index))!!\n", elementPropertyName)
+          add(
+            " }, %N?.getOrNull(index)) ?: throw %T(%P)\n",
+            elementPropertyName,
+            serializationExceptionClassName,
+            "Element '$propertyName' at index \$index on $modelDisplayName has neither a value nor an id/extension",
+          )
           add("})")
         }
       } else {

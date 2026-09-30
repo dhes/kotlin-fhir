@@ -299,17 +299,20 @@ internal object EndpointSerializer : KSerializer<Endpoint> {
       payloadMimeType =
         (kotlin.collections.List(maxOf(payloadMimeType?.size ?: 0, _payloadMimeType?.size ?: 0)) {
           index ->
-          Code.of(
-            payloadMimeType?.getOrNull(index)?.let { it },
-            _payloadMimeType?.getOrNull(index),
-          )!!
+          Code.of(payloadMimeType?.getOrNull(index)?.let { it }, _payloadMimeType?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'payloadMimeType' at index $index on Endpoint has neither a value nor an id/extension"""
+            )
         }),
       address =
         Url.of(address, _address)
           ?: throw SerializationException("Missing required property 'address' on Endpoint"),
       `header` =
         (kotlin.collections.List(maxOf(`header`?.size ?: 0, _header?.size ?: 0)) { index ->
-          R4bString.of(`header`?.getOrNull(index)?.let { it }, _header?.getOrNull(index))!!
+          R4bString.of(`header`?.getOrNull(index)?.let { it }, _header?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'header' at index $index on Endpoint has neither a value nor an id/extension"""
+            )
         }),
     )
   }

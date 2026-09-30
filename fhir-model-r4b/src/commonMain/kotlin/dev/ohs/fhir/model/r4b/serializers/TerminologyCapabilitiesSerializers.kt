@@ -520,12 +520,18 @@ internal object TerminologyCapabilitiesCodeSystemVersionSerializer :
       compositional = R4bBoolean.of(compositional, _compositional),
       language =
         (kotlin.collections.List(maxOf(language?.size ?: 0, _language?.size ?: 0)) { index ->
-          Code.of(language?.getOrNull(index)?.let { it }, _language?.getOrNull(index))!!
+          Code.of(language?.getOrNull(index)?.let { it }, _language?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'language' at index $index on TerminologyCapabilities.CodeSystem.Version has neither a value nor an id/extension"""
+            )
         }),
       filter = filter ?: listOf(),
       `property` =
         (kotlin.collections.List(maxOf(`property`?.size ?: 0, _property?.size ?: 0)) { index ->
-          Code.of(`property`?.getOrNull(index)?.let { it }, _property?.getOrNull(index))!!
+          Code.of(`property`?.getOrNull(index)?.let { it }, _property?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'property' at index $index on TerminologyCapabilities.CodeSystem.Version has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -669,7 +675,10 @@ internal object TerminologyCapabilitiesCodeSystemVersionFilterSerializer :
           ),
       op =
         (kotlin.collections.List(maxOf(op?.size ?: 0, _op?.size ?: 0)) { index ->
-          Code.of(op?.getOrNull(index)?.let { it }, _op?.getOrNull(index))!!
+          Code.of(op?.getOrNull(index)?.let { it }, _op?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'op' at index $index on TerminologyCapabilities.CodeSystem.Version.Filter has neither a value nor an id/extension"""
+            )
         }),
     )
   }

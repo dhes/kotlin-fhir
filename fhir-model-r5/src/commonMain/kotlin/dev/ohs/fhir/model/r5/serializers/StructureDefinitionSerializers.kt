@@ -904,7 +904,10 @@ internal object StructureDefinitionSerializer : KSerializer<StructureDefinition>
           R5String.of(
             contextInvariant?.getOrNull(index)?.let { it },
             _contextInvariant?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'contextInvariant' at index $index on StructureDefinition has neither a value nor an id/extension"""
+            )
         }),
       type =
         Uri.of(type, _type)

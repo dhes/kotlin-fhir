@@ -633,7 +633,10 @@ internal object MessageDefinitionSerializer : KSerializer<MessageDefinition> {
       title = R4bString.of(title, _title),
       replaces =
         (kotlin.collections.List(maxOf(replaces?.size ?: 0, _replaces?.size ?: 0)) { index ->
-          Canonical.of(replaces?.getOrNull(index)?.let { it }, _replaces?.getOrNull(index))!!
+          Canonical.of(replaces?.getOrNull(index)?.let { it }, _replaces?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'replaces' at index $index on MessageDefinition has neither a value nor an id/extension"""
+            )
         }),
       status =
         Enumeration.of(status?.let { PublicationStatus.fromCode(it) }, _status)
@@ -654,7 +657,10 @@ internal object MessageDefinitionSerializer : KSerializer<MessageDefinition> {
       base = Canonical.of(base, _base),
       parent =
         (kotlin.collections.List(maxOf(parent?.size ?: 0, _parent?.size ?: 0)) { index ->
-          Canonical.of(parent?.getOrNull(index)?.let { it }, _parent?.getOrNull(index))!!
+          Canonical.of(parent?.getOrNull(index)?.let { it }, _parent?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'parent' at index $index on MessageDefinition has neither a value nor an id/extension"""
+            )
         }),
       event =
         MessageDefinition.Event.from(eventCoding, Uri.of(eventUri, _eventUri))
@@ -673,7 +679,10 @@ internal object MessageDefinitionSerializer : KSerializer<MessageDefinition> {
       allowedResponse = allowedResponse ?: listOf(),
       graph =
         (kotlin.collections.List(maxOf(graph?.size ?: 0, _graph?.size ?: 0)) { index ->
-          Canonical.of(graph?.getOrNull(index)?.let { it }, _graph?.getOrNull(index))!!
+          Canonical.of(graph?.getOrNull(index)?.let { it }, _graph?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'graph' at index $index on MessageDefinition has neither a value nor an id/extension"""
+            )
         }),
     )
   }

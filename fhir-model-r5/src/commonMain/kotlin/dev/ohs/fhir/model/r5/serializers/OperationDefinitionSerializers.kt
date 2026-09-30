@@ -265,7 +265,10 @@ internal object OperationDefinitionParameterSerializer :
               OperationDefinition.OperationParameterScope.fromCode(it)
             },
             _scope?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'scope' at index $index on OperationDefinition.Parameter has neither a value nor an id/extension"""
+            )
         }),
       min =
         Integer.of(min, _min)
@@ -284,7 +287,10 @@ internal object OperationDefinitionParameterSerializer :
           Enumeration.of(
             allowedType?.getOrNull(index)?.let { FHIRTypes.fromCode(it) },
             _allowedType?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'allowedType' at index $index on OperationDefinition.Parameter has neither a value nor an id/extension"""
+            )
         }),
       targetProfile =
         (kotlin.collections.List(maxOf(targetProfile?.size ?: 0, _targetProfile?.size ?: 0)) { index
@@ -292,7 +298,10 @@ internal object OperationDefinitionParameterSerializer :
           Canonical.of(
             targetProfile?.getOrNull(index)?.let { it },
             _targetProfile?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'targetProfile' at index $index on OperationDefinition.Parameter has neither a value nor an id/extension"""
+            )
         }),
       searchType = Enumeration.of(searchType?.let { SearchParamType.fromCode(it) }, _searchType),
       binding = binding,
@@ -715,10 +724,10 @@ internal object OperationDefinitionOverloadSerializer : KSerializer<OperationDef
       parameterName =
         (kotlin.collections.List(maxOf(parameterName?.size ?: 0, _parameterName?.size ?: 0)) { index
           ->
-          R5String.of(
-            parameterName?.getOrNull(index)?.let { it },
-            _parameterName?.getOrNull(index),
-          )!!
+          R5String.of(parameterName?.getOrNull(index)?.let { it }, _parameterName?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'parameterName' at index $index on OperationDefinition.Overload has neither a value nor an id/extension"""
+            )
         }),
       comment = R5String.of(comment, _comment),
     )
@@ -1174,7 +1183,10 @@ internal object OperationDefinitionSerializer : KSerializer<OperationDefinition>
               OperationDefinition.VersionIndependentResourceTypesAll.fromCode(it)
             },
             _resource?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'resource' at index $index on OperationDefinition has neither a value nor an id/extension"""
+            )
         }),
       system =
         R5Boolean.of(system, _system)

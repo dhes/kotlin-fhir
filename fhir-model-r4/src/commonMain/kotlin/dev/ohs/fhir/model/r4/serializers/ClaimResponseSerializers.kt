@@ -168,7 +168,10 @@ internal object ClaimResponseItemSerializer : KSerializer<ClaimResponse.Item> {
           ),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.Item has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
       detail = detail ?: listOf(),
@@ -460,7 +463,10 @@ internal object ClaimResponseItemDetailSerializer : KSerializer<ClaimResponse.It
           ),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.Item.Detail has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
       subDetail = subDetail ?: listOf(),
@@ -618,7 +624,10 @@ internal object ClaimResponseItemDetailSubDetailSerializer :
           ),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.Item.Detail.SubDetail has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
     )
@@ -948,7 +957,10 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
           PositiveInt.of(
             itemSequence?.getOrNull(index)?.let { it },
             _itemSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'itemSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+            )
         }),
       detailSequence =
         (kotlin.collections.List(maxOf(detailSequence?.size ?: 0, _detailSequence?.size ?: 0)) {
@@ -956,7 +968,10 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
           PositiveInt.of(
             detailSequence?.getOrNull(index)?.let { it },
             _detailSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'detailSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+            )
         }),
       subdetailSequence =
         (kotlin.collections.List(
@@ -965,7 +980,10 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
           PositiveInt.of(
             subdetailSequence?.getOrNull(index)?.let { it },
             _subdetailSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'subdetailSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+            )
         }),
       provider = provider ?: listOf(),
       productOrService =
@@ -994,7 +1012,10 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
       subSite = subSite ?: listOf(),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
       detail = detail ?: listOf(),
@@ -1282,7 +1303,10 @@ internal object ClaimResponseAddItemDetailSerializer : KSerializer<ClaimResponse
       net = net,
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.AddItem.Detail has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
       subDetail = subDetail ?: listOf(),
@@ -1503,7 +1527,10 @@ internal object ClaimResponseAddItemDetailSubDetailSerializer :
       net = net,
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ClaimResponse.AddItem.Detail.SubDetail has neither a value nor an id/extension"""
+            )
         }),
       adjudication = adjudication ?: listOf(),
     )

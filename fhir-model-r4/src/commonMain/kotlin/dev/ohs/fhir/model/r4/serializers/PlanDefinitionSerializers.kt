@@ -705,7 +705,10 @@ internal object PlanDefinitionActionSerializer : KSerializer<PlanDefinition.Acti
       documentation = documentation ?: listOf(),
       goalId =
         (kotlin.collections.List(maxOf(goalId?.size ?: 0, _goalId?.size ?: 0)) { index ->
-          Id.of(goalId?.getOrNull(index)?.let { it }, _goalId?.getOrNull(index))!!
+          Id.of(goalId?.getOrNull(index)?.let { it }, _goalId?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'goalId' at index $index on PlanDefinition.Action has neither a value nor an id/extension"""
+            )
         }),
       subject = PlanDefinition.Action.Subject.from(subjectCodeableConcept, subjectReference),
       trigger = trigger ?: listOf(),
@@ -1836,7 +1839,10 @@ internal object PlanDefinitionSerializer : KSerializer<PlanDefinition> {
       relatedArtifact = relatedArtifact ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on PlanDefinition has neither a value nor an id/extension"""
+            )
         }),
       goal = goal ?: listOf(),
       action = action ?: listOf(),

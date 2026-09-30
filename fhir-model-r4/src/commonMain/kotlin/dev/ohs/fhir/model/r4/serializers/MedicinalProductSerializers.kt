@@ -1101,7 +1101,10 @@ internal object MedicinalProductSerializer : KSerializer<MedicinalProduct> {
           R4String.of(
             specialMeasures?.getOrNull(index)?.let { it },
             _specialMeasures?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'specialMeasures' at index $index on MedicinalProduct has neither a value nor an id/extension"""
+            )
         }),
       paediatricUseIndicator = paediatricUseIndicator,
       productClassification = productClassification ?: listOf(),

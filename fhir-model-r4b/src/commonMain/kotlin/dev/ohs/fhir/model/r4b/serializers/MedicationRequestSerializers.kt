@@ -1003,15 +1003,18 @@ internal object MedicationRequestSerializer : KSerializer<MedicationRequest> {
           Canonical.of(
             instantiatesCanonical?.getOrNull(index)?.let { it },
             _instantiatesCanonical?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'instantiatesCanonical' at index $index on MedicationRequest has neither a value nor an id/extension"""
+            )
         }),
       instantiatesUri =
         (kotlin.collections.List(maxOf(instantiatesUri?.size ?: 0, _instantiatesUri?.size ?: 0)) {
           index ->
-          Uri.of(
-            instantiatesUri?.getOrNull(index)?.let { it },
-            _instantiatesUri?.getOrNull(index),
-          )!!
+          Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'instantiatesUri' at index $index on MedicationRequest has neither a value nor an id/extension"""
+            )
         }),
       basedOn = basedOn ?: listOf(),
       groupIdentifier = groupIdentifier,

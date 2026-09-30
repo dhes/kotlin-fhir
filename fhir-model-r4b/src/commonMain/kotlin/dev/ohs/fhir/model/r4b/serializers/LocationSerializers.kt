@@ -313,7 +313,10 @@ internal object LocationHoursOfOperationSerializer : KSerializer<Location.HoursO
           Enumeration.of(
             daysOfWeek?.getOrNull(index)?.let { Location.DaysOfWeek.fromCode(it) },
             _daysOfWeek?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'daysOfWeek' at index $index on Location.HoursOfOperation has neither a value nor an id/extension"""
+            )
         }),
       allDay = R4bBoolean.of(allDay, _allDay),
       openingTime = Time.of(openingTime, _openingTime),
@@ -625,7 +628,10 @@ internal object LocationSerializer : KSerializer<Location> {
       name = R4bString.of(name, _name),
       alias =
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
-          R4bString.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))!!
+          R4bString.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'alias' at index $index on Location has neither a value nor an id/extension"""
+            )
         }),
       description = R4bString.of(description, _description),
       mode = Enumeration.of(mode?.let { Location.LocationMode.fromCode(it) }, _mode),

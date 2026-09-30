@@ -198,7 +198,10 @@ internal object AuditEventAgentSerializer : KSerializer<AuditEvent.Agent> {
       location = location,
       policy =
         (kotlin.collections.List(maxOf(policy?.size ?: 0, _policy?.size ?: 0)) { index ->
-          Uri.of(policy?.getOrNull(index)?.let { it }, _policy?.getOrNull(index))!!
+          Uri.of(policy?.getOrNull(index)?.let { it }, _policy?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'policy' at index $index on AuditEvent.Agent has neither a value nor an id/extension"""
+            )
         }),
       media = media,
       network = network,

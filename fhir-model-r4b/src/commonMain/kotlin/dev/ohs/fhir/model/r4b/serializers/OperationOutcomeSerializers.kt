@@ -178,11 +178,17 @@ internal object OperationOutcomeIssueSerializer : KSerializer<OperationOutcome.I
       diagnostics = R4bString.of(diagnostics, _diagnostics),
       location =
         (kotlin.collections.List(maxOf(location?.size ?: 0, _location?.size ?: 0)) { index ->
-          R4bString.of(location?.getOrNull(index)?.let { it }, _location?.getOrNull(index))!!
+          R4bString.of(location?.getOrNull(index)?.let { it }, _location?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'location' at index $index on OperationOutcome.Issue has neither a value nor an id/extension"""
+            )
         }),
       expression =
         (kotlin.collections.List(maxOf(expression?.size ?: 0, _expression?.size ?: 0)) { index ->
-          R4bString.of(expression?.getOrNull(index)?.let { it }, _expression?.getOrNull(index))!!
+          R4bString.of(expression?.getOrNull(index)?.let { it }, _expression?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'expression' at index $index on OperationOutcome.Issue has neither a value nor an id/extension"""
+            )
         }),
     )
   }

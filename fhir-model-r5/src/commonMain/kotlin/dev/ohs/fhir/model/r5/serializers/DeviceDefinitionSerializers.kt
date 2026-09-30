@@ -819,7 +819,10 @@ internal object DeviceDefinitionConformsToSerializer : KSerializer<DeviceDefinit
           ),
       version =
         (kotlin.collections.List(maxOf(version?.size ?: 0, _version?.size ?: 0)) { index ->
-          R5String.of(version?.getOrNull(index)?.let { it }, _version?.getOrNull(index))!!
+          R5String.of(version?.getOrNull(index)?.let { it }, _version?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'version' at index $index on DeviceDefinition.ConformsTo has neither a value nor an id/extension"""
+            )
         }),
       source = source ?: listOf(),
     )
@@ -2622,7 +2625,10 @@ internal object DeviceDefinitionSerializer : KSerializer<DeviceDefinition> {
               DeviceDefinition.DeviceProductionIdentifierInUDI.fromCode(it)
             },
             _productionIdentifierInUDI?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'productionIdentifierInUDI' at index $index on DeviceDefinition has neither a value nor an id/extension"""
+            )
         }),
       guideline = guideline,
       correctiveAction = correctiveAction,

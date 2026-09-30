@@ -571,7 +571,10 @@ internal object MedicationAdministrationSerializer : KSerializer<MedicationAdmin
       instantiates =
         (kotlin.collections.List(maxOf(instantiates?.size ?: 0, _instantiates?.size ?: 0)) { index
           ->
-          Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))!!
+          Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'instantiates' at index $index on MedicationAdministration has neither a value nor an id/extension"""
+            )
         }),
       partOf = partOf ?: listOf(),
       status =

@@ -450,7 +450,10 @@ internal object CapabilityStatementRestSerializer : KSerializer<CapabilityStatem
       operation = operation ?: listOf(),
       compartment =
         (kotlin.collections.List(maxOf(compartment?.size ?: 0, _compartment?.size ?: 0)) { index ->
-          Canonical.of(compartment?.getOrNull(index)?.let { it }, _compartment?.getOrNull(index))!!
+          Canonical.of(compartment?.getOrNull(index)?.let { it }, _compartment?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'compartment' at index $index on CapabilityStatement.Rest has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -941,7 +944,10 @@ internal object CapabilityStatementRestResourceSerializer :
           Canonical.of(
             supportedProfile?.getOrNull(index)?.let { it },
             _supportedProfile?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'supportedProfile' at index $index on CapabilityStatement.Rest.Resource has neither a value nor an id/extension"""
+            )
         }),
       documentation = Markdown.of(documentation, _documentation),
       interaction = interaction ?: listOf(),
@@ -972,15 +978,18 @@ internal object CapabilityStatementRestResourceSerializer :
               CapabilityStatement.ReferenceHandlingPolicy.fromCode(it)
             },
             _referencePolicy?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'referencePolicy' at index $index on CapabilityStatement.Rest.Resource has neither a value nor an id/extension"""
+            )
         }),
       searchInclude =
         (kotlin.collections.List(maxOf(searchInclude?.size ?: 0, _searchInclude?.size ?: 0)) { index
           ->
-          R4String.of(
-            searchInclude?.getOrNull(index)?.let { it },
-            _searchInclude?.getOrNull(index),
-          )!!
+          R4String.of(searchInclude?.getOrNull(index)?.let { it }, _searchInclude?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'searchInclude' at index $index on CapabilityStatement.Rest.Resource has neither a value nor an id/extension"""
+            )
         }),
       searchRevInclude =
         (kotlin.collections.List(
@@ -989,7 +998,10 @@ internal object CapabilityStatementRestResourceSerializer :
           R4String.of(
             searchRevInclude?.getOrNull(index)?.let { it },
             _searchRevInclude?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'searchRevInclude' at index $index on CapabilityStatement.Rest.Resource has neither a value nor an id/extension"""
+            )
         }),
       searchParam = searchParam ?: listOf(),
       operation = operation ?: listOf(),
@@ -2486,14 +2498,17 @@ internal object CapabilityStatementSerializer : KSerializer<CapabilityStatement>
       instantiates =
         (kotlin.collections.List(maxOf(instantiates?.size ?: 0, _instantiates?.size ?: 0)) { index
           ->
-          Canonical.of(
-            instantiates?.getOrNull(index)?.let { it },
-            _instantiates?.getOrNull(index),
-          )!!
+          Canonical.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'instantiates' at index $index on CapabilityStatement has neither a value nor an id/extension"""
+            )
         }),
       imports =
         (kotlin.collections.List(maxOf(imports?.size ?: 0, _imports?.size ?: 0)) { index ->
-          Canonical.of(imports?.getOrNull(index)?.let { it }, _imports?.getOrNull(index))!!
+          Canonical.of(imports?.getOrNull(index)?.let { it }, _imports?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'imports' at index $index on CapabilityStatement has neither a value nor an id/extension"""
+            )
         }),
       software = software,
       implementation = implementation,
@@ -2504,11 +2519,17 @@ internal object CapabilityStatementSerializer : KSerializer<CapabilityStatement>
           ),
       format =
         (kotlin.collections.List(maxOf(format?.size ?: 0, _format?.size ?: 0)) { index ->
-          Code.of(format?.getOrNull(index)?.let { it }, _format?.getOrNull(index))!!
+          Code.of(format?.getOrNull(index)?.let { it }, _format?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'format' at index $index on CapabilityStatement has neither a value nor an id/extension"""
+            )
         }),
       patchFormat =
         (kotlin.collections.List(maxOf(patchFormat?.size ?: 0, _patchFormat?.size ?: 0)) { index ->
-          Code.of(patchFormat?.getOrNull(index)?.let { it }, _patchFormat?.getOrNull(index))!!
+          Code.of(patchFormat?.getOrNull(index)?.let { it }, _patchFormat?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'patchFormat' at index $index on CapabilityStatement has neither a value nor an id/extension"""
+            )
         }),
       implementationGuide =
         (kotlin.collections.List(
@@ -2517,7 +2538,10 @@ internal object CapabilityStatementSerializer : KSerializer<CapabilityStatement>
           Canonical.of(
             implementationGuide?.getOrNull(index)?.let { it },
             _implementationGuide?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'implementationGuide' at index $index on CapabilityStatement has neither a value nor an id/extension"""
+            )
         }),
       rest = rest ?: listOf(),
       messaging = messaging ?: listOf(),

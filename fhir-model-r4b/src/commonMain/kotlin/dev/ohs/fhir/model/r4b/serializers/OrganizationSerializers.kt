@@ -360,7 +360,10 @@ internal object OrganizationSerializer : KSerializer<Organization> {
       name = R4bString.of(name, _name),
       alias =
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
-          R4bString.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))!!
+          R4bString.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'alias' at index $index on Organization has neither a value nor an id/extension"""
+            )
         }),
       telecom = telecom ?: listOf(),
       address = address ?: listOf(),

@@ -1197,7 +1197,10 @@ internal object ExplanationOfBenefitInsuranceSerializer :
           ),
       preAuthRef =
         (kotlin.collections.List(maxOf(preAuthRef?.size ?: 0, _preAuthRef?.size ?: 0)) { index ->
-          R5String.of(preAuthRef?.getOrNull(index)?.let { it }, _preAuthRef?.getOrNull(index))!!
+          R5String.of(preAuthRef?.getOrNull(index)?.let { it }, _preAuthRef?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'preAuthRef' at index $index on ExplanationOfBenefit.Insurance has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -1759,7 +1762,10 @@ internal object ExplanationOfBenefitItemSerializer : KSerializer<ExplanationOfBe
           PositiveInt.of(
             careTeamSequence?.getOrNull(index)?.let { it },
             _careTeamSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'careTeamSequence' at index $index on ExplanationOfBenefit.Item has neither a value nor an id/extension"""
+            )
         }),
       diagnosisSequence =
         (kotlin.collections.List(
@@ -1768,7 +1774,10 @@ internal object ExplanationOfBenefitItemSerializer : KSerializer<ExplanationOfBe
           PositiveInt.of(
             diagnosisSequence?.getOrNull(index)?.let { it },
             _diagnosisSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'diagnosisSequence' at index $index on ExplanationOfBenefit.Item has neither a value nor an id/extension"""
+            )
         }),
       procedureSequence =
         (kotlin.collections.List(
@@ -1777,7 +1786,10 @@ internal object ExplanationOfBenefitItemSerializer : KSerializer<ExplanationOfBe
           PositiveInt.of(
             procedureSequence?.getOrNull(index)?.let { it },
             _procedureSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'procedureSequence' at index $index on ExplanationOfBenefit.Item has neither a value nor an id/extension"""
+            )
         }),
       informationSequence =
         (kotlin.collections.List(
@@ -1786,7 +1798,10 @@ internal object ExplanationOfBenefitItemSerializer : KSerializer<ExplanationOfBe
           PositiveInt.of(
             informationSequence?.getOrNull(index)?.let { it },
             _informationSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'informationSequence' at index $index on ExplanationOfBenefit.Item has neither a value nor an id/extension"""
+            )
         }),
       traceNumber = traceNumber ?: listOf(),
       revenue = revenue,
@@ -1818,7 +1833,10 @@ internal object ExplanationOfBenefitItemSerializer : KSerializer<ExplanationOfBe
       encounter = encounter ?: listOf(),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.Item has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -2573,7 +2591,10 @@ internal object ExplanationOfBenefitItemDetailSerializer :
       udi = udi ?: listOf(),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.Item.Detail has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -2904,7 +2925,10 @@ internal object ExplanationOfBenefitItemDetailSubDetailSerializer :
       udi = udi ?: listOf(),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.Item.Detail.SubDetail has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -3325,7 +3349,10 @@ internal object ExplanationOfBenefitAddItemSerializer : KSerializer<ExplanationO
           PositiveInt.of(
             itemSequence?.getOrNull(index)?.let { it },
             _itemSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'itemSequence' at index $index on ExplanationOfBenefit.AddItem has neither a value nor an id/extension"""
+            )
         }),
       detailSequence =
         (kotlin.collections.List(maxOf(detailSequence?.size ?: 0, _detailSequence?.size ?: 0)) {
@@ -3333,7 +3360,10 @@ internal object ExplanationOfBenefitAddItemSerializer : KSerializer<ExplanationO
           PositiveInt.of(
             detailSequence?.getOrNull(index)?.let { it },
             _detailSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'detailSequence' at index $index on ExplanationOfBenefit.AddItem has neither a value nor an id/extension"""
+            )
         }),
       subDetailSequence =
         (kotlin.collections.List(
@@ -3342,7 +3372,10 @@ internal object ExplanationOfBenefitAddItemSerializer : KSerializer<ExplanationO
           PositiveInt.of(
             subDetailSequence?.getOrNull(index)?.let { it },
             _subDetailSequence?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'subDetailSequence' at index $index on ExplanationOfBenefit.AddItem has neither a value nor an id/extension"""
+            )
         }),
       traceNumber = traceNumber ?: listOf(),
       provider = provider ?: listOf(),
@@ -3372,7 +3405,10 @@ internal object ExplanationOfBenefitAddItemSerializer : KSerializer<ExplanationO
       bodySite = bodySite ?: listOf(),
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.AddItem has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -3834,7 +3870,10 @@ internal object ExplanationOfBenefitAddItemDetailSerializer :
       net = net,
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.AddItem.Detail has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -4117,7 +4156,10 @@ internal object ExplanationOfBenefitAddItemDetailSubDetailSerializer :
       net = net,
       noteNumber =
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
-          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))!!
+          PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'noteNumber' at index $index on ExplanationOfBenefit.AddItem.Detail.SubDetail has neither a value nor an id/extension"""
+            )
         }),
       reviewOutcome = reviewOutcome,
       adjudication = adjudication ?: listOf(),
@@ -5463,7 +5505,10 @@ internal object ExplanationOfBenefitSerializer : KSerializer<ExplanationOfBenefi
       disposition = R5String.of(disposition, _disposition),
       preAuthRef =
         (kotlin.collections.List(maxOf(preAuthRef?.size ?: 0, _preAuthRef?.size ?: 0)) { index ->
-          R5String.of(preAuthRef?.getOrNull(index)?.let { it }, _preAuthRef?.getOrNull(index))!!
+          R5String.of(preAuthRef?.getOrNull(index)?.let { it }, _preAuthRef?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'preAuthRef' at index $index on ExplanationOfBenefit has neither a value nor an id/extension"""
+            )
         }),
       preAuthRefPeriod = preAuthRefPeriod ?: listOf(),
       diagnosisRelatedGroup = diagnosisRelatedGroup,

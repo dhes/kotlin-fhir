@@ -1171,12 +1171,18 @@ internal object SpecimenDefinitionSerializer : KSerializer<SpecimenDefinition> {
           Canonical.of(
             derivedFromCanonical?.getOrNull(index)?.let { it },
             _derivedFromCanonical?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'derivedFromCanonical' at index $index on SpecimenDefinition has neither a value nor an id/extension"""
+            )
         }),
       derivedFromUri =
         (kotlin.collections.List(maxOf(derivedFromUri?.size ?: 0, _derivedFromUri?.size ?: 0)) {
           index ->
-          Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))!!
+          Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'derivedFromUri' at index $index on SpecimenDefinition has neither a value nor an id/extension"""
+            )
         }),
       status =
         Enumeration.of(status?.let { PublicationStatus.fromCode(it) }, _status)

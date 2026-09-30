@@ -753,7 +753,10 @@ internal object VerificationResultSerializer : KSerializer<VerificationResult> {
           R4String.of(
             targetLocation?.getOrNull(index)?.let { it },
             _targetLocation?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'targetLocation' at index $index on VerificationResult has neither a value nor an id/extension"""
+            )
         }),
       need = need,
       status =

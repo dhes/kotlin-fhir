@@ -987,7 +987,10 @@ internal object ConditionDefinitionSerializer : KSerializer<ConditionDefinition>
       hasStage = R5Boolean.of(hasStage, _hasStage),
       definition =
         (kotlin.collections.List(maxOf(definition?.size ?: 0, _definition?.size ?: 0)) { index ->
-          Uri.of(definition?.getOrNull(index)?.let { it }, _definition?.getOrNull(index))!!
+          Uri.of(definition?.getOrNull(index)?.let { it }, _definition?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'definition' at index $index on ConditionDefinition has neither a value nor an id/extension"""
+            )
         }),
       observation = observation ?: listOf(),
       medication = medication ?: listOf(),

@@ -1413,7 +1413,10 @@ internal object QuestionnaireSerializer : KSerializer<Questionnaire> {
       title = R4String.of(title, _title),
       derivedFrom =
         (kotlin.collections.List(maxOf(derivedFrom?.size ?: 0, _derivedFrom?.size ?: 0)) { index ->
-          Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))!!
+          Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'derivedFrom' at index $index on Questionnaire has neither a value nor an id/extension"""
+            )
         }),
       status =
         Enumeration.of(status?.let { PublicationStatus.fromCode(it) }, _status)
@@ -1424,7 +1427,10 @@ internal object QuestionnaireSerializer : KSerializer<Questionnaire> {
           Enumeration.of(
             subjectType?.getOrNull(index)?.let { ResourceType.fromCode(it) },
             _subjectType?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'subjectType' at index $index on Questionnaire has neither a value nor an id/extension"""
+            )
         }),
       date = DateTime.of(date?.let { FhirDateTime.fromString(it) }, _date),
       publisher = R4String.of(publisher, _publisher),

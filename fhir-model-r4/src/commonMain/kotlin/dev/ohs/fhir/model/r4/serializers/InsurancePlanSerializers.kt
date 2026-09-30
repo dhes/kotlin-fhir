@@ -1332,7 +1332,10 @@ internal object InsurancePlanSerializer : KSerializer<InsurancePlan> {
       name = R4String.of(name, _name),
       alias =
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
-          R4String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))!!
+          R4String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'alias' at index $index on InsurancePlan has neither a value nor an id/extension"""
+            )
         }),
       period = period,
       ownedBy = ownedBy,

@@ -602,12 +602,18 @@ internal object TestScriptMetadataCapabilitySerializer :
       description = R4String.of(description, _description),
       origin =
         (kotlin.collections.List(maxOf(origin?.size ?: 0, _origin?.size ?: 0)) { index ->
-          Integer.of(origin?.getOrNull(index)?.let { it }, _origin?.getOrNull(index))!!
+          Integer.of(origin?.getOrNull(index)?.let { it }, _origin?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'origin' at index $index on TestScript.Metadata.Capability has neither a value nor an id/extension"""
+            )
         }),
       destination = Integer.of(destination, _destination),
       link =
         (kotlin.collections.List(maxOf(link?.size ?: 0, _link?.size ?: 0)) { index ->
-          Uri.of(link?.getOrNull(index)?.let { it }, _link?.getOrNull(index))!!
+          Uri.of(link?.getOrNull(index)?.let { it }, _link?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'link' at index $index on TestScript.Metadata.Capability has neither a value nor an id/extension"""
+            )
         }),
       capabilities =
         Canonical.of(capabilities, _capabilities)

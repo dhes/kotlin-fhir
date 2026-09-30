@@ -190,7 +190,10 @@ internal object VirtualServiceDetailSerializer : KSerializer<VirtualServiceDetai
       additionalInfo =
         (kotlin.collections.List(maxOf(additionalInfo?.size ?: 0, _additionalInfo?.size ?: 0)) {
           index ->
-          Url.of(additionalInfo?.getOrNull(index)?.let { it }, _additionalInfo?.getOrNull(index))!!
+          Url.of(additionalInfo?.getOrNull(index)?.let { it }, _additionalInfo?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'additionalInfo' at index $index on VirtualServiceDetail has neither a value nor an id/extension"""
+            )
         }),
       maxParticipants = PositiveInt.of(maxParticipants, _maxParticipants),
       sessionKey = R5String.of(sessionKey, _sessionKey),

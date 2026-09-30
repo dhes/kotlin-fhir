@@ -164,7 +164,10 @@ internal object AvailabilityAvailableTimeSerializer : KSerializer<Availability.A
           Enumeration.of(
             daysOfWeek?.getOrNull(index)?.let { Availability.DaysOfWeek.fromCode(it) },
             _daysOfWeek?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'daysOfWeek' at index $index on Availability.AvailableTime has neither a value nor an id/extension"""
+            )
         }),
       allDay = R5Boolean.of(allDay, _allDay),
       availableStartTime = Time.of(availableStartTime, _availableStartTime),

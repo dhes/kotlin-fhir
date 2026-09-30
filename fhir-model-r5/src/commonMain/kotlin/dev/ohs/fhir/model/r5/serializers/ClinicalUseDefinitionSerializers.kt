@@ -1300,7 +1300,10 @@ internal object ClinicalUseDefinitionSerializer : KSerializer<ClinicalUseDefinit
       population = population ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on ClinicalUseDefinition has neither a value nor an id/extension"""
+            )
         }),
       undesirableEffect = undesirableEffect,
       warning = warning,

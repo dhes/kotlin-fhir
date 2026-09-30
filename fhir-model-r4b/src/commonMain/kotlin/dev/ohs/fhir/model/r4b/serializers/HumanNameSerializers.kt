@@ -164,15 +164,24 @@ internal object HumanNameSerializer : KSerializer<HumanName> {
       family = R4bString.of(family, _family),
       given =
         (kotlin.collections.List(maxOf(given?.size ?: 0, _given?.size ?: 0)) { index ->
-          R4bString.of(given?.getOrNull(index)?.let { it }, _given?.getOrNull(index))!!
+          R4bString.of(given?.getOrNull(index)?.let { it }, _given?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'given' at index $index on HumanName has neither a value nor an id/extension"""
+            )
         }),
       prefix =
         (kotlin.collections.List(maxOf(prefix?.size ?: 0, _prefix?.size ?: 0)) { index ->
-          R4bString.of(prefix?.getOrNull(index)?.let { it }, _prefix?.getOrNull(index))!!
+          R4bString.of(prefix?.getOrNull(index)?.let { it }, _prefix?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'prefix' at index $index on HumanName has neither a value nor an id/extension"""
+            )
         }),
       suffix =
         (kotlin.collections.List(maxOf(suffix?.size ?: 0, _suffix?.size ?: 0)) { index ->
-          R4bString.of(suffix?.getOrNull(index)?.let { it }, _suffix?.getOrNull(index))!!
+          R4bString.of(suffix?.getOrNull(index)?.let { it }, _suffix?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'suffix' at index $index on HumanName has neither a value nor an id/extension"""
+            )
         }),
       period = period,
     )

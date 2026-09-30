@@ -175,7 +175,10 @@ internal object ValueSetComposeSerializer : KSerializer<ValueSet.Compose> {
       exclude = exclude ?: listOf(),
       `property` =
         (kotlin.collections.List(maxOf(`property`?.size ?: 0, _property?.size ?: 0)) { index ->
-          R5String.of(`property`?.getOrNull(index)?.let { it }, _property?.getOrNull(index))!!
+          R5String.of(`property`?.getOrNull(index)?.let { it }, _property?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'property' at index $index on ValueSet.Compose has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -348,7 +351,10 @@ internal object ValueSetComposeIncludeSerializer : KSerializer<ValueSet.Compose.
       filter = filter ?: listOf(),
       valueSet =
         (kotlin.collections.List(maxOf(valueSet?.size ?: 0, _valueSet?.size ?: 0)) { index ->
-          Canonical.of(valueSet?.getOrNull(index)?.let { it }, _valueSet?.getOrNull(index))!!
+          Canonical.of(valueSet?.getOrNull(index)?.let { it }, _valueSet?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'valueSet' at index $index on ValueSet.Compose.Include has neither a value nor an id/extension"""
+            )
         }),
       copyright = R5String.of(copyright, _copyright),
     )

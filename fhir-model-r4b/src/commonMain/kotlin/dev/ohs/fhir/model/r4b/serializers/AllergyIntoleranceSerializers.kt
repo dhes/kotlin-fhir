@@ -486,7 +486,10 @@ internal object AllergyIntoleranceSerializer : KSerializer<AllergyIntolerance> {
               AllergyIntolerance.AllergyIntoleranceCategory.fromCode(it)
             },
             _category?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'category' at index $index on AllergyIntolerance has neither a value nor an id/extension"""
+            )
         }),
       criticality =
         Enumeration.of(

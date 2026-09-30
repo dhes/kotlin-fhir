@@ -62,6 +62,48 @@ class SerializationExceptionTest :
       """
         .trimIndent()
 
+    val patientWithNullGivenJson =
+      """
+      {
+        "resourceType": "Patient",
+        "name": [
+          {
+            "given": ["Ann", null]
+          }
+        ]
+      }
+      """
+        .trimIndent()
+
+    val patientWithMismatchedGivenLengthsJson =
+      """
+      {
+        "resourceType": "Patient",
+        "name": [
+          {
+            "given": ["Ann"],
+            "_given": [null, null]
+          }
+        ]
+      }
+      """
+        .trimIndent()
+
+    val searchParameterWithNullBaseJson =
+      """
+      {
+        "resourceType": "SearchParameter",
+        "url": "http://example.org/sp",
+        "name": "x",
+        "status": "draft",
+        "description": "x",
+        "code": "x",
+        "base": ["Patient", null],
+        "type": "token"
+      }
+      """
+        .trimIndent()
+
     fun <TResource : Any> serializationExceptionTestSuite(
       fhirVersion: String,
       resourceSerializer: KSerializer<TResource>,
@@ -93,6 +135,41 @@ class SerializationExceptionTest :
             }
           assertEquals(
             "Missing required property 'div' on Narrative",
+            exception.message,
+          )
+        }
+      }
+
+      context("$fhirVersion Empty Repeated Primitive Positions") {
+        test("null primitive list entry without an id/extension throws SerializationException") {
+          val exception =
+            assertFailsWith<SerializationException> {
+              testJson.decodeFromString(resourceSerializer, patientWithNullGivenJson)
+            }
+          assertEquals(
+            "Element 'given' at index 1 on HumanName has neither a value nor an id/extension",
+            exception.message,
+          )
+        }
+
+        test("primitive list shorter than its _ array throws SerializationException") {
+          val exception =
+            assertFailsWith<SerializationException> {
+              testJson.decodeFromString(resourceSerializer, patientWithMismatchedGivenLengthsJson)
+            }
+          assertEquals(
+            "Element 'given' at index 1 on HumanName has neither a value nor an id/extension",
+            exception.message,
+          )
+        }
+
+        test("null enum list entry without an id/extension throws SerializationException") {
+          val exception =
+            assertFailsWith<SerializationException> {
+              testJson.decodeFromString(resourceSerializer, searchParameterWithNullBaseJson)
+            }
+          assertEquals(
+            "Element 'base' at index 1 on SearchParameter has neither a value nor an id/extension",
             exception.message,
           )
         }

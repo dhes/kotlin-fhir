@@ -362,7 +362,10 @@ internal object OrganizationSerializer : KSerializer<Organization> {
       name = R5String.of(name, _name),
       alias =
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
-          R5String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))!!
+          R5String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'alias' at index $index on Organization has neither a value nor an id/extension"""
+            )
         }),
       description = Markdown.of(description, _description),
       contact = contact ?: listOf(),

@@ -149,7 +149,10 @@ internal object MetaSerializer : KSerializer<Meta> {
       source = Uri.of(source, _source),
       profile =
         (kotlin.collections.List(maxOf(profile?.size ?: 0, _profile?.size ?: 0)) { index ->
-          Canonical.of(profile?.getOrNull(index)?.let { it }, _profile?.getOrNull(index))!!
+          Canonical.of(profile?.getOrNull(index)?.let { it }, _profile?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'profile' at index $index on Meta has neither a value nor an id/extension"""
+            )
         }),
       security = security ?: listOf(),
       tag = tag ?: listOf(),

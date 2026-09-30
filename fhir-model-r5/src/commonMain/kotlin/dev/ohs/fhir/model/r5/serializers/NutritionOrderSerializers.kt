@@ -1756,20 +1756,26 @@ internal object NutritionOrderSerializer : KSerializer<NutritionOrder> {
           Canonical.of(
             instantiatesCanonical?.getOrNull(index)?.let { it },
             _instantiatesCanonical?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'instantiatesCanonical' at index $index on NutritionOrder has neither a value nor an id/extension"""
+            )
         }),
       instantiatesUri =
         (kotlin.collections.List(maxOf(instantiatesUri?.size ?: 0, _instantiatesUri?.size ?: 0)) {
           index ->
-          Uri.of(
-            instantiatesUri?.getOrNull(index)?.let { it },
-            _instantiatesUri?.getOrNull(index),
-          )!!
+          Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'instantiatesUri' at index $index on NutritionOrder has neither a value nor an id/extension"""
+            )
         }),
       instantiates =
         (kotlin.collections.List(maxOf(instantiates?.size ?: 0, _instantiates?.size ?: 0)) { index
           ->
-          Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))!!
+          Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'instantiates' at index $index on NutritionOrder has neither a value nor an id/extension"""
+            )
         }),
       basedOn = basedOn ?: listOf(),
       groupIdentifier = groupIdentifier,

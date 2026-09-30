@@ -329,7 +329,10 @@ internal object MeasureGroupSerializer : KSerializer<Measure.Group> {
       improvementNotation = improvementNotation,
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on Measure.Group has neither a value nor an id/extension"""
+            )
         }),
       population = population ?: listOf(),
       stratifier = stratifier ?: listOf(),
@@ -1572,7 +1575,10 @@ internal object MeasureSerializer : KSerializer<Measure> {
       relatedArtifact = relatedArtifact ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on Measure has neither a value nor an id/extension"""
+            )
         }),
       disclaimer = Markdown.of(disclaimer, _disclaimer),
       scoring = scoring,

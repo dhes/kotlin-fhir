@@ -792,7 +792,10 @@ internal object PermissionSerializer : KSerializer<Permission> {
           DateTime.of(
             date?.getOrNull(index)?.let { it?.let { FhirDateTime.fromString(it) } },
             _date?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'date' at index $index on Permission has neither a value nor an id/extension"""
+            )
         }),
       validity = validity,
       justification = justification,

@@ -714,7 +714,10 @@ internal object ImplementationGuideDefinitionResourceSerializer :
           Enumeration.of(
             fhirVersion?.getOrNull(index)?.let { FHIRVersion.fromCode(it) },
             _fhirVersion?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'fhirVersion' at index $index on ImplementationGuide.Definition.Resource has neither a value nor an id/extension"""
+            )
         }),
       name = R4bString.of(name, _name),
       description = R4bString.of(description, _description),
@@ -1300,11 +1303,17 @@ internal object ImplementationGuideManifestSerializer : KSerializer<Implementati
       page = page ?: listOf(),
       image =
         (kotlin.collections.List(maxOf(image?.size ?: 0, _image?.size ?: 0)) { index ->
-          R4bString.of(image?.getOrNull(index)?.let { it }, _image?.getOrNull(index))!!
+          R4bString.of(image?.getOrNull(index)?.let { it }, _image?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'image' at index $index on ImplementationGuide.Manifest has neither a value nor an id/extension"""
+            )
         }),
       other =
         (kotlin.collections.List(maxOf(other?.size ?: 0, _other?.size ?: 0)) { index ->
-          R4bString.of(other?.getOrNull(index)?.let { it }, _other?.getOrNull(index))!!
+          R4bString.of(other?.getOrNull(index)?.let { it }, _other?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'other' at index $index on ImplementationGuide.Manifest has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -1612,7 +1621,10 @@ internal object ImplementationGuideManifestPageSerializer :
       title = R4bString.of(title, _title),
       anchor =
         (kotlin.collections.List(maxOf(anchor?.size ?: 0, _anchor?.size ?: 0)) { index ->
-          R4bString.of(anchor?.getOrNull(index)?.let { it }, _anchor?.getOrNull(index))!!
+          R4bString.of(anchor?.getOrNull(index)?.let { it }, _anchor?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'anchor' at index $index on ImplementationGuide.Manifest.Page has neither a value nor an id/extension"""
+            )
         }),
     )
   }
@@ -1973,7 +1985,10 @@ internal object ImplementationGuideSerializer : KSerializer<ImplementationGuide>
           Enumeration.of(
             fhirVersion?.getOrNull(index)?.let { FHIRVersion.fromCode(it) },
             _fhirVersion?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'fhirVersion' at index $index on ImplementationGuide has neither a value nor an id/extension"""
+            )
         }),
       dependsOn = dependsOn ?: listOf(),
       global = global ?: listOf(),

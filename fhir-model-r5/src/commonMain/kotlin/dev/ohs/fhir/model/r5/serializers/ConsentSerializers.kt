@@ -282,7 +282,10 @@ internal object ConsentVerificationSerializer : KSerializer<Consent.Verification
           DateTime.of(
             verificationDate?.getOrNull(index)?.let { it?.let { FhirDateTime.fromString(it) } },
             _verificationDate?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'verificationDate' at index $index on Consent.Verification has neither a value nor an id/extension"""
+            )
         }),
     )
   }

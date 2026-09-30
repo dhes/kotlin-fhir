@@ -598,7 +598,10 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
               SearchParameter.VersionIndependentResourceTypesAll.fromCode(it)
             },
             _base?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'base' at index $index on SearchParameter has neither a value nor an id/extension"""
+            )
         }),
       type =
         Enumeration.of(type?.let { SearchParamType.fromCode(it) }, _type)
@@ -617,7 +620,10 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
               SearchParameter.VersionIndependentResourceTypesAll.fromCode(it)
             },
             _target?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'target' at index $index on SearchParameter has neither a value nor an id/extension"""
+            )
         }),
       multipleOr = R5Boolean.of(multipleOr, _multipleOr),
       multipleAnd = R5Boolean.of(multipleAnd, _multipleAnd),
@@ -626,18 +632,27 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
           Enumeration.of(
             comparator?.getOrNull(index)?.let { SearchParameter.SearchComparator.fromCode(it) },
             _comparator?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'comparator' at index $index on SearchParameter has neither a value nor an id/extension"""
+            )
         }),
       modifier =
         (kotlin.collections.List(maxOf(modifier?.size ?: 0, _modifier?.size ?: 0)) { index ->
           Enumeration.of(
             modifier?.getOrNull(index)?.let { SearchParameter.SearchModifierCode.fromCode(it) },
             _modifier?.getOrNull(index),
-          )!!
+          )
+            ?: throw SerializationException(
+              """Element 'modifier' at index $index on SearchParameter has neither a value nor an id/extension"""
+            )
         }),
       chain =
         (kotlin.collections.List(maxOf(chain?.size ?: 0, _chain?.size ?: 0)) { index ->
-          R5String.of(chain?.getOrNull(index)?.let { it }, _chain?.getOrNull(index))!!
+          R5String.of(chain?.getOrNull(index)?.let { it }, _chain?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'chain' at index $index on SearchParameter has neither a value nor an id/extension"""
+            )
         }),
       component = component ?: listOf(),
     )

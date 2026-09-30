@@ -1076,7 +1076,10 @@ internal object DeviceDefinitionSerializer : KSerializer<DeviceDefinition> {
       specialization = specialization ?: listOf(),
       version =
         (kotlin.collections.List(maxOf(version?.size ?: 0, _version?.size ?: 0)) { index ->
-          R4String.of(version?.getOrNull(index)?.let { it }, _version?.getOrNull(index))!!
+          R4String.of(version?.getOrNull(index)?.let { it }, _version?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'version' at index $index on DeviceDefinition has neither a value nor an id/extension"""
+            )
         }),
       safety = safety ?: listOf(),
       shelfLifeStorage = shelfLifeStorage ?: listOf(),

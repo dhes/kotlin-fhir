@@ -1185,7 +1185,10 @@ internal object MeasureSerializer : KSerializer<Measure> {
       relatedArtifact = relatedArtifact ?: listOf(),
       library =
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
-          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))!!
+          Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'library' at index $index on Measure has neither a value nor an id/extension"""
+            )
         }),
       disclaimer = Markdown.of(disclaimer, _disclaimer),
       scoring = scoring,
@@ -1199,7 +1202,10 @@ internal object MeasureSerializer : KSerializer<Measure> {
       improvementNotation = improvementNotation,
       definition =
         (kotlin.collections.List(maxOf(definition?.size ?: 0, _definition?.size ?: 0)) { index ->
-          Markdown.of(definition?.getOrNull(index)?.let { it }, _definition?.getOrNull(index))!!
+          Markdown.of(definition?.getOrNull(index)?.let { it }, _definition?.getOrNull(index))
+            ?: throw SerializationException(
+              """Element 'definition' at index $index on Measure has neither a value nor an id/extension"""
+            )
         }),
       guidance = Markdown.of(guidance, _guidance),
       group = group ?: listOf(),
