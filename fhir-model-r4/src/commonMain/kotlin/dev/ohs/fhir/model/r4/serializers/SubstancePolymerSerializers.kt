@@ -1002,7 +1002,7 @@ internal object SubstancePolymerSerializer : KSerializer<SubstancePolymer> {
           ->
           R4String.of(modification?.getOrNull(index)?.let { it }, _modification?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'modification' at index $index on SubstancePolymer has neither a value nor an id/extension"""
+              "An entry of 'modification' on SubstancePolymer has neither a value nor an id/extension"
             )
         }),
       monomerSet = monomerSet ?: listOf(),

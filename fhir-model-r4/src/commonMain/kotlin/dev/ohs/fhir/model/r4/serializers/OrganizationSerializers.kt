@@ -362,7 +362,7 @@ internal object OrganizationSerializer : KSerializer<Organization> {
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
           R4String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'alias' at index $index on Organization has neither a value nor an id/extension"""
+              "An entry of 'alias' on Organization has neither a value nor an id/extension"
             )
         }),
       telecom = telecom ?: listOf(),

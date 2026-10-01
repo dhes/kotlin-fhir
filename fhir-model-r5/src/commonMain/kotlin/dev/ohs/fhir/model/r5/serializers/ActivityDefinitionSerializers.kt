@@ -968,7 +968,7 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
           Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'library' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+              "An entry of 'library' on ActivityDefinition has neither a value nor an id/extension"
             )
         }),
       kind = Enumeration.of(kind?.let { RequestResourceTypes.fromCode(it) }, _kind),
@@ -1003,7 +1003,7 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
             _specimenRequirement?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'specimenRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+              "An entry of 'specimenRequirement' on ActivityDefinition has neither a value nor an id/extension"
             )
         }),
       observationRequirement =
@@ -1015,7 +1015,7 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
             _observationRequirement?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'observationRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+              "An entry of 'observationRequirement' on ActivityDefinition has neither a value nor an id/extension"
             )
         }),
       observationResultRequirement =
@@ -1027,7 +1027,7 @@ internal object ActivityDefinitionSerializer : KSerializer<ActivityDefinition> {
             _observationResultRequirement?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'observationResultRequirement' at index $index on ActivityDefinition has neither a value nor an id/extension"""
+              "An entry of 'observationResultRequirement' on ActivityDefinition has neither a value nor an id/extension"
             )
         }),
       transform = Canonical.of(transform, _transform),

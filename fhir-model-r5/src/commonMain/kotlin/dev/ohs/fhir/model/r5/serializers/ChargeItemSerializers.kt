@@ -490,7 +490,7 @@ internal object ChargeItemSerializer : KSerializer<ChargeItem> {
           ->
           Uri.of(definitionUri?.getOrNull(index)?.let { it }, _definitionUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'definitionUri' at index $index on ChargeItem has neither a value nor an id/extension"""
+              "An entry of 'definitionUri' on ChargeItem has neither a value nor an id/extension"
             )
         }),
       definitionCanonical =
@@ -502,7 +502,7 @@ internal object ChargeItemSerializer : KSerializer<ChargeItem> {
             _definitionCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'definitionCanonical' at index $index on ChargeItem has neither a value nor an id/extension"""
+              "An entry of 'definitionCanonical' on ChargeItem has neither a value nor an id/extension"
             )
         }),
       status =

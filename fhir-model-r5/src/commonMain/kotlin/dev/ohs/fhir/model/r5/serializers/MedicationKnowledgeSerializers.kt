@@ -2767,7 +2767,7 @@ internal object MedicationKnowledgeSerializer : KSerializer<MedicationKnowledge>
         (kotlin.collections.List(maxOf(name?.size ?: 0, _name?.size ?: 0)) { index ->
           R5String.of(name?.getOrNull(index)?.let { it }, _name?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'name' at index $index on MedicationKnowledge has neither a value nor an id/extension"""
+              "An entry of 'name' on MedicationKnowledge has neither a value nor an id/extension"
             )
         }),
       relatedMedicationKnowledge = relatedMedicationKnowledge ?: listOf(),

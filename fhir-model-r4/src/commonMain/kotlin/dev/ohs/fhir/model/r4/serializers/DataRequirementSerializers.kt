@@ -534,7 +534,7 @@ internal object DataRequirementSerializer : KSerializer<DataRequirement> {
         (kotlin.collections.List(maxOf(profile?.size ?: 0, _profile?.size ?: 0)) { index ->
           Canonical.of(profile?.getOrNull(index)?.let { it }, _profile?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'profile' at index $index on DataRequirement has neither a value nor an id/extension"""
+              "An entry of 'profile' on DataRequirement has neither a value nor an id/extension"
             )
         }),
       subject = DataRequirement.Subject.from(subjectCodeableConcept, subjectReference),
@@ -542,7 +542,7 @@ internal object DataRequirementSerializer : KSerializer<DataRequirement> {
         (kotlin.collections.List(maxOf(mustSupport?.size ?: 0, _mustSupport?.size ?: 0)) { index ->
           R4String.of(mustSupport?.getOrNull(index)?.let { it }, _mustSupport?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'mustSupport' at index $index on DataRequirement has neither a value nor an id/extension"""
+              "An entry of 'mustSupport' on DataRequirement has neither a value nor an id/extension"
             )
         }),
       codeFilter = codeFilter ?: listOf(),

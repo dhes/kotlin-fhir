@@ -631,7 +631,7 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
             _permittedDataType?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'permittedDataType' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+              "An entry of 'permittedDataType' on ObservationDefinition has neither a value nor an id/extension"
             )
         }),
       multipleResultsAllowed = R4Boolean.of(multipleResultsAllowed, _multipleResultsAllowed),

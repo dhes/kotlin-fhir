@@ -715,21 +715,21 @@ internal object ChargeItemDefinitionSerializer : KSerializer<ChargeItemDefinitio
           index ->
           Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFromUri' at index $index on ChargeItemDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFromUri' on ChargeItemDefinition has neither a value nor an id/extension"
             )
         }),
       partOf =
         (kotlin.collections.List(maxOf(partOf?.size ?: 0, _partOf?.size ?: 0)) { index ->
           Canonical.of(partOf?.getOrNull(index)?.let { it }, _partOf?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'partOf' at index $index on ChargeItemDefinition has neither a value nor an id/extension"""
+              "An entry of 'partOf' on ChargeItemDefinition has neither a value nor an id/extension"
             )
         }),
       replaces =
         (kotlin.collections.List(maxOf(replaces?.size ?: 0, _replaces?.size ?: 0)) { index ->
           Canonical.of(replaces?.getOrNull(index)?.let { it }, _replaces?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'replaces' at index $index on ChargeItemDefinition has neither a value nor an id/extension"""
+              "An entry of 'replaces' on ChargeItemDefinition has neither a value nor an id/extension"
             )
         }),
       status =

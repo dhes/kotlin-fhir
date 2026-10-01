@@ -499,7 +499,7 @@ internal object CommunicationSerializer : KSerializer<Communication> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on Communication has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on Communication has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -507,7 +507,7 @@ internal object CommunicationSerializer : KSerializer<Communication> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on Communication has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on Communication has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

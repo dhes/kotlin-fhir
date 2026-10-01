@@ -308,7 +308,7 @@ internal object ClaimResponseItemSerializer : KSerializer<ClaimResponse.Item> {
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.Item has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.Item has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -755,7 +755,7 @@ internal object ClaimResponseItemDetailSerializer : KSerializer<ClaimResponse.It
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.Item.Detail has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.Item.Detail has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -949,7 +949,7 @@ internal object ClaimResponseItemDetailSubDetailSerializer :
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.Item.Detail.SubDetail has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.Item.Detail.SubDetail has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -1315,7 +1315,7 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
             _itemSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'itemSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+              "An entry of 'itemSequence' on ClaimResponse.AddItem has neither a value nor an id/extension"
             )
         }),
       detailSequence =
@@ -1326,7 +1326,7 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
             _detailSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'detailSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+              "An entry of 'detailSequence' on ClaimResponse.AddItem has neither a value nor an id/extension"
             )
         }),
       subdetailSequence =
@@ -1338,7 +1338,7 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
             _subdetailSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'subdetailSequence' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+              "An entry of 'subdetailSequence' on ClaimResponse.AddItem has neither a value nor an id/extension"
             )
         }),
       traceNumber = traceNumber ?: listOf(),
@@ -1370,7 +1370,7 @@ internal object ClaimResponseAddItemSerializer : KSerializer<ClaimResponse.AddIt
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.AddItem has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.AddItem has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -1817,7 +1817,7 @@ internal object ClaimResponseAddItemDetailSerializer : KSerializer<ClaimResponse
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.AddItem.Detail has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.AddItem.Detail has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -2085,7 +2085,7 @@ internal object ClaimResponseAddItemDetailSubDetailSerializer :
         (kotlin.collections.List(maxOf(noteNumber?.size ?: 0, _noteNumber?.size ?: 0)) { index ->
           PositiveInt.of(noteNumber?.getOrNull(index)?.let { it }, _noteNumber?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'noteNumber' at index $index on ClaimResponse.AddItem.Detail.SubDetail has neither a value nor an id/extension"""
+              "An entry of 'noteNumber' on ClaimResponse.AddItem.Detail.SubDetail has neither a value nor an id/extension"
             )
         }),
       reviewOutcome = reviewOutcome,
@@ -2786,7 +2786,7 @@ internal object ClaimResponseErrorSerializer : KSerializer<ClaimResponse.Error> 
         (kotlin.collections.List(maxOf(expression?.size ?: 0, _expression?.size ?: 0)) { index ->
           R5String.of(expression?.getOrNull(index)?.let { it }, _expression?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'expression' at index $index on ClaimResponse.Error has neither a value nor an id/extension"""
+              "An entry of 'expression' on ClaimResponse.Error has neither a value nor an id/extension"
             )
         }),
     )

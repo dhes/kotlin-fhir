@@ -1033,7 +1033,7 @@ internal object RequestGroupSerializer : KSerializer<RequestGroup> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on RequestGroup has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on RequestGroup has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -1041,7 +1041,7 @@ internal object RequestGroupSerializer : KSerializer<RequestGroup> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on RequestGroup has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on RequestGroup has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

@@ -538,7 +538,7 @@ internal object ElementDefinitionTypeSerializer : KSerializer<ElementDefinition.
         (kotlin.collections.List(maxOf(profile?.size ?: 0, _profile?.size ?: 0)) { index ->
           Canonical.of(profile?.getOrNull(index)?.let { it }, _profile?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'profile' at index $index on ElementDefinition.Type has neither a value nor an id/extension"""
+              "An entry of 'profile' on ElementDefinition.Type has neither a value nor an id/extension"
             )
         }),
       targetProfile =
@@ -549,7 +549,7 @@ internal object ElementDefinitionTypeSerializer : KSerializer<ElementDefinition.
             _targetProfile?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'targetProfile' at index $index on ElementDefinition.Type has neither a value nor an id/extension"""
+              "An entry of 'targetProfile' on ElementDefinition.Type has neither a value nor an id/extension"
             )
         }),
       aggregation =
@@ -559,7 +559,7 @@ internal object ElementDefinitionTypeSerializer : KSerializer<ElementDefinition.
             _aggregation?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'aggregation' at index $index on ElementDefinition.Type has neither a value nor an id/extension"""
+              "An entry of 'aggregation' on ElementDefinition.Type has neither a value nor an id/extension"
             )
         }),
       versioning =
@@ -4205,7 +4205,7 @@ internal object ElementDefinitionSerializer : KSerializer<ElementDefinition> {
             _representation?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'representation' at index $index on ElementDefinition has neither a value nor an id/extension"""
+              "An entry of 'representation' on ElementDefinition has neither a value nor an id/extension"
             )
         }),
       sliceName = R5String.of(sliceName, _sliceName),
@@ -4221,7 +4221,7 @@ internal object ElementDefinitionSerializer : KSerializer<ElementDefinition> {
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
           R5String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'alias' at index $index on ElementDefinition has neither a value nor an id/extension"""
+              "An entry of 'alias' on ElementDefinition has neither a value nor an id/extension"
             )
         }),
       min = UnsignedInt.of(min, _min),
@@ -4440,7 +4440,7 @@ internal object ElementDefinitionSerializer : KSerializer<ElementDefinition> {
         (kotlin.collections.List(maxOf(condition?.size ?: 0, _condition?.size ?: 0)) { index ->
           Id.of(condition?.getOrNull(index)?.let { it }, _condition?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'condition' at index $index on ElementDefinition has neither a value nor an id/extension"""
+              "An entry of 'condition' on ElementDefinition has neither a value nor an id/extension"
             )
         }),
       constraint = constraint ?: listOf(),
@@ -4454,7 +4454,7 @@ internal object ElementDefinitionSerializer : KSerializer<ElementDefinition> {
             _valueAlternatives?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'valueAlternatives' at index $index on ElementDefinition has neither a value nor an id/extension"""
+              "An entry of 'valueAlternatives' on ElementDefinition has neither a value nor an id/extension"
             )
         }),
       mustSupport = R5Boolean.of(mustSupport, _mustSupport),

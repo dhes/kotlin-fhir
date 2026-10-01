@@ -497,7 +497,7 @@ internal object CarePlanActivityDetailSerializer : KSerializer<CarePlan.Activity
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on CarePlan.Activity.Detail has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on CarePlan.Activity.Detail has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -505,7 +505,7 @@ internal object CarePlanActivityDetailSerializer : KSerializer<CarePlan.Activity
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on CarePlan.Activity.Detail has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on CarePlan.Activity.Detail has neither a value nor an id/extension"
             )
         }),
       code = code,
@@ -973,7 +973,7 @@ internal object CarePlanSerializer : KSerializer<CarePlan> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on CarePlan has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on CarePlan has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -981,7 +981,7 @@ internal object CarePlanSerializer : KSerializer<CarePlan> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on CarePlan has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on CarePlan has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

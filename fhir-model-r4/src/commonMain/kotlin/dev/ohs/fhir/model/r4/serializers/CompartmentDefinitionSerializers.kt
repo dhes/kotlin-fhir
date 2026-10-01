@@ -147,7 +147,7 @@ internal object CompartmentDefinitionResourceSerializer :
         (kotlin.collections.List(maxOf(`param`?.size ?: 0, _param?.size ?: 0)) { index ->
           R4String.of(`param`?.getOrNull(index)?.let { it }, _param?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'param' at index $index on CompartmentDefinition.Resource has neither a value nor an id/extension"""
+              "An entry of 'param' on CompartmentDefinition.Resource has neither a value nor an id/extension"
             )
         }),
       documentation = R4String.of(documentation, _documentation),

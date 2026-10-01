@@ -231,7 +231,7 @@ internal object RequirementsStatementSerializer : KSerializer<Requirements.State
             _conformance?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'conformance' at index $index on Requirements.Statement has neither a value nor an id/extension"""
+              "An entry of 'conformance' on Requirements.Statement has neither a value nor an id/extension"
             )
         }),
       conditionality = R5Boolean.of(conditionality, _conditionality),
@@ -246,14 +246,14 @@ internal object RequirementsStatementSerializer : KSerializer<Requirements.State
         (kotlin.collections.List(maxOf(satisfiedBy?.size ?: 0, _satisfiedBy?.size ?: 0)) { index ->
           Url.of(satisfiedBy?.getOrNull(index)?.let { it }, _satisfiedBy?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'satisfiedBy' at index $index on Requirements.Statement has neither a value nor an id/extension"""
+              "An entry of 'satisfiedBy' on Requirements.Statement has neither a value nor an id/extension"
             )
         }),
       reference =
         (kotlin.collections.List(maxOf(reference?.size ?: 0, _reference?.size ?: 0)) { index ->
           Url.of(reference?.getOrNull(index)?.let { it }, _reference?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'reference' at index $index on Requirements.Statement has neither a value nor an id/extension"""
+              "An entry of 'reference' on Requirements.Statement has neither a value nor an id/extension"
             )
         }),
       source = source ?: listOf(),
@@ -671,21 +671,21 @@ internal object RequirementsSerializer : KSerializer<Requirements> {
         (kotlin.collections.List(maxOf(derivedFrom?.size ?: 0, _derivedFrom?.size ?: 0)) { index ->
           Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFrom' at index $index on Requirements has neither a value nor an id/extension"""
+              "An entry of 'derivedFrom' on Requirements has neither a value nor an id/extension"
             )
         }),
       reference =
         (kotlin.collections.List(maxOf(reference?.size ?: 0, _reference?.size ?: 0)) { index ->
           Url.of(reference?.getOrNull(index)?.let { it }, _reference?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'reference' at index $index on Requirements has neither a value nor an id/extension"""
+              "An entry of 'reference' on Requirements has neither a value nor an id/extension"
             )
         }),
       actor =
         (kotlin.collections.List(maxOf(actor?.size ?: 0, _actor?.size ?: 0)) { index ->
           Canonical.of(actor?.getOrNull(index)?.let { it }, _actor?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'actor' at index $index on Requirements has neither a value nor an id/extension"""
+              "An entry of 'actor' on Requirements has neither a value nor an id/extension"
             )
         }),
       statement = statement ?: listOf(),

@@ -1007,7 +1007,7 @@ internal object MedicationKnowledgeAdministrationGuidelinesPatientCharacteristic
         (kotlin.collections.List(maxOf(`value`?.size ?: 0, _value?.size ?: 0)) { index ->
           R4bString.of(`value`?.getOrNull(index)?.let { it }, _value?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'value' at index $index on MedicationKnowledge.AdministrationGuidelines.PatientCharacteristics has neither a value nor an id/extension"""
+              "An entry of 'value' on MedicationKnowledge.AdministrationGuidelines.PatientCharacteristics has neither a value nor an id/extension"
             )
         }),
     )
@@ -2354,7 +2354,7 @@ internal object MedicationKnowledgeSerializer : KSerializer<MedicationKnowledge>
         (kotlin.collections.List(maxOf(synonym?.size ?: 0, _synonym?.size ?: 0)) { index ->
           R4bString.of(synonym?.getOrNull(index)?.let { it }, _synonym?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'synonym' at index $index on MedicationKnowledge has neither a value nor an id/extension"""
+              "An entry of 'synonym' on MedicationKnowledge has neither a value nor an id/extension"
             )
         }),
       relatedMedicationKnowledge = relatedMedicationKnowledge ?: listOf(),

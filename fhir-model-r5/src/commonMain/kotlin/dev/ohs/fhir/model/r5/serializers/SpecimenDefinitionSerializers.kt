@@ -1173,7 +1173,7 @@ internal object SpecimenDefinitionSerializer : KSerializer<SpecimenDefinition> {
             _derivedFromCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'derivedFromCanonical' at index $index on SpecimenDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFromCanonical' on SpecimenDefinition has neither a value nor an id/extension"
             )
         }),
       derivedFromUri =
@@ -1181,7 +1181,7 @@ internal object SpecimenDefinitionSerializer : KSerializer<SpecimenDefinition> {
           index ->
           Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFromUri' at index $index on SpecimenDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFromUri' on SpecimenDefinition has neither a value nor an id/extension"
             )
         }),
       status =

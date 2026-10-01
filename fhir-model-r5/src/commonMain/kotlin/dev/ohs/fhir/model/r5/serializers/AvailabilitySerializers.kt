@@ -166,7 +166,7 @@ internal object AvailabilityAvailableTimeSerializer : KSerializer<Availability.A
             _daysOfWeek?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'daysOfWeek' at index $index on Availability.AvailableTime has neither a value nor an id/extension"""
+              "An entry of 'daysOfWeek' on Availability.AvailableTime has neither a value nor an id/extension"
             )
         }),
       allDay = R5Boolean.of(allDay, _allDay),

@@ -509,7 +509,7 @@ internal object ResearchDefinitionSerializer : KSerializer<ResearchDefinition> {
         (kotlin.collections.List(maxOf(comment?.size ?: 0, _comment?.size ?: 0)) { index ->
           R4String.of(comment?.getOrNull(index)?.let { it }, _comment?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'comment' at index $index on ResearchDefinition has neither a value nor an id/extension"""
+              "An entry of 'comment' on ResearchDefinition has neither a value nor an id/extension"
             )
         }),
       useContext = useContext ?: listOf(),
@@ -530,7 +530,7 @@ internal object ResearchDefinitionSerializer : KSerializer<ResearchDefinition> {
         (kotlin.collections.List(maxOf(library?.size ?: 0, _library?.size ?: 0)) { index ->
           Canonical.of(library?.getOrNull(index)?.let { it }, _library?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'library' at index $index on ResearchDefinition has neither a value nor an id/extension"""
+              "An entry of 'library' on ResearchDefinition has neither a value nor an id/extension"
             )
         }),
       population =

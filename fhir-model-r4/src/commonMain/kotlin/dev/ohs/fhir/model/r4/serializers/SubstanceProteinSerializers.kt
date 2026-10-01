@@ -399,7 +399,7 @@ internal object SubstanceProteinSerializer : KSerializer<SubstanceProtein> {
             _disulfideLinkage?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'disulfideLinkage' at index $index on SubstanceProtein has neither a value nor an id/extension"""
+              "An entry of 'disulfideLinkage' on SubstanceProtein has neither a value nor an id/extension"
             )
         }),
       subunit = subunit ?: listOf(),

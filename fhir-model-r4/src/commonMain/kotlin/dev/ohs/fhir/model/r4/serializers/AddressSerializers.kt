@@ -161,7 +161,7 @@ internal object AddressSerializer : KSerializer<Address> {
         (kotlin.collections.List(maxOf(line?.size ?: 0, _line?.size ?: 0)) { index ->
           R4String.of(line?.getOrNull(index)?.let { it }, _line?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'line' at index $index on Address has neither a value nor an id/extension"""
+              "An entry of 'line' on Address has neither a value nor an id/extension"
             )
         }),
       city = R4String.of(city, _city),

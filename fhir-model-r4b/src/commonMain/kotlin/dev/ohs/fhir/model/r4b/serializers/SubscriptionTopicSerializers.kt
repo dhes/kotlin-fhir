@@ -195,7 +195,7 @@ internal object SubscriptionTopicResourceTriggerSerializer :
             _supportedInteraction?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'supportedInteraction' at index $index on SubscriptionTopic.ResourceTrigger has neither a value nor an id/extension"""
+              "An entry of 'supportedInteraction' on SubscriptionTopic.ResourceTrigger has neither a value nor an id/extension"
             )
         }),
       queryCriteria = queryCriteria,
@@ -649,7 +649,7 @@ internal object SubscriptionTopicCanFilterBySerializer :
             _modifier?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'modifier' at index $index on SubscriptionTopic.CanFilterBy has neither a value nor an id/extension"""
+              "An entry of 'modifier' on SubscriptionTopic.CanFilterBy has neither a value nor an id/extension"
             )
         }),
     )
@@ -806,14 +806,14 @@ internal object SubscriptionTopicNotificationShapeSerializer :
         (kotlin.collections.List(maxOf(include?.size ?: 0, _include?.size ?: 0)) { index ->
           R4bString.of(include?.getOrNull(index)?.let { it }, _include?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'include' at index $index on SubscriptionTopic.NotificationShape has neither a value nor an id/extension"""
+              "An entry of 'include' on SubscriptionTopic.NotificationShape has neither a value nor an id/extension"
             )
         }),
       revInclude =
         (kotlin.collections.List(maxOf(revInclude?.size ?: 0, _revInclude?.size ?: 0)) { index ->
           R4bString.of(revInclude?.getOrNull(index)?.let { it }, _revInclude?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'revInclude' at index $index on SubscriptionTopic.NotificationShape has neither a value nor an id/extension"""
+              "An entry of 'revInclude' on SubscriptionTopic.NotificationShape has neither a value nor an id/extension"
             )
         }),
     )
@@ -1189,7 +1189,7 @@ internal object SubscriptionTopicSerializer : KSerializer<SubscriptionTopic> {
         (kotlin.collections.List(maxOf(derivedFrom?.size ?: 0, _derivedFrom?.size ?: 0)) { index ->
           Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFrom' at index $index on SubscriptionTopic has neither a value nor an id/extension"""
+              "An entry of 'derivedFrom' on SubscriptionTopic has neither a value nor an id/extension"
             )
         }),
       status =

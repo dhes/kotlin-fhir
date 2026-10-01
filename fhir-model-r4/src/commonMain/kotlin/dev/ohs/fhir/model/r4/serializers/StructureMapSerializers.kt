@@ -2026,7 +2026,7 @@ internal object StructureMapGroupRuleTargetSerializer :
             _listMode?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'listMode' at index $index on StructureMap.Group.Rule.Target has neither a value nor an id/extension"""
+              "An entry of 'listMode' on StructureMap.Group.Rule.Target has neither a value nor an id/extension"
             )
         }),
       listRuleId = Id.of(listRuleId, _listRuleId),
@@ -2356,7 +2356,7 @@ internal object StructureMapGroupRuleDependentSerializer :
         (kotlin.collections.List(maxOf(variable?.size ?: 0, _variable?.size ?: 0)) { index ->
           R4String.of(variable?.getOrNull(index)?.let { it }, _variable?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'variable' at index $index on StructureMap.Group.Rule.Dependent has neither a value nor an id/extension"""
+              "An entry of 'variable' on StructureMap.Group.Rule.Dependent has neither a value nor an id/extension"
             )
         }),
     )
@@ -2683,7 +2683,7 @@ internal object StructureMapSerializer : KSerializer<StructureMap> {
         (kotlin.collections.List(maxOf(`import`?.size ?: 0, _import?.size ?: 0)) { index ->
           Canonical.of(`import`?.getOrNull(index)?.let { it }, _import?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'import' at index $index on StructureMap has neither a value nor an id/extension"""
+              "An entry of 'import' on StructureMap has neither a value nor an id/extension"
             )
         }),
       group = group ?: listOf(),

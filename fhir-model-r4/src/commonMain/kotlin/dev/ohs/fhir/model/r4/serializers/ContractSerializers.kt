@@ -598,7 +598,7 @@ internal object ContractTermSecurityLabelSerializer : KSerializer<Contract.Term.
         (kotlin.collections.List(maxOf(number?.size ?: 0, _number?.size ?: 0)) { index ->
           UnsignedInt.of(number?.getOrNull(index)?.let { it }, _number?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'number' at index $index on Contract.Term.SecurityLabel has neither a value nor an id/extension"""
+              "An entry of 'number' on Contract.Term.SecurityLabel has neither a value nor an id/extension"
             )
         }),
       classification =
@@ -810,7 +810,7 @@ internal object ContractTermOfferSerializer : KSerializer<Contract.Term.Offer> {
         (kotlin.collections.List(maxOf(linkId?.size ?: 0, _linkId?.size ?: 0)) { index ->
           R4String.of(linkId?.getOrNull(index)?.let { it }, _linkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'linkId' at index $index on Contract.Term.Offer has neither a value nor an id/extension"""
+              "An entry of 'linkId' on Contract.Term.Offer has neither a value nor an id/extension"
             )
         }),
       securityLabelNumber =
@@ -822,7 +822,7 @@ internal object ContractTermOfferSerializer : KSerializer<Contract.Term.Offer> {
             _securityLabelNumber?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'securityLabelNumber' at index $index on Contract.Term.Offer has neither a value nor an id/extension"""
+              "An entry of 'securityLabelNumber' on Contract.Term.Offer has neither a value nor an id/extension"
             )
         }),
     )
@@ -1473,7 +1473,7 @@ internal object ContractTermAssetSerializer : KSerializer<Contract.Term.Asset> {
         (kotlin.collections.List(maxOf(linkId?.size ?: 0, _linkId?.size ?: 0)) { index ->
           R4String.of(linkId?.getOrNull(index)?.let { it }, _linkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'linkId' at index $index on Contract.Term.Asset has neither a value nor an id/extension"""
+              "An entry of 'linkId' on Contract.Term.Asset has neither a value nor an id/extension"
             )
         }),
       answer = answer ?: listOf(),
@@ -1486,7 +1486,7 @@ internal object ContractTermAssetSerializer : KSerializer<Contract.Term.Asset> {
             _securityLabelNumber?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'securityLabelNumber' at index $index on Contract.Term.Asset has neither a value nor an id/extension"""
+              "An entry of 'securityLabelNumber' on Contract.Term.Asset has neither a value nor an id/extension"
             )
         }),
       valuedItem = valuedItem ?: listOf(),
@@ -1924,7 +1924,7 @@ internal object ContractTermAssetValuedItemSerializer :
         (kotlin.collections.List(maxOf(linkId?.size ?: 0, _linkId?.size ?: 0)) { index ->
           R4String.of(linkId?.getOrNull(index)?.let { it }, _linkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'linkId' at index $index on Contract.Term.Asset.ValuedItem has neither a value nor an id/extension"""
+              "An entry of 'linkId' on Contract.Term.Asset.ValuedItem has neither a value nor an id/extension"
             )
         }),
       securityLabelNumber =
@@ -1936,7 +1936,7 @@ internal object ContractTermAssetValuedItemSerializer :
             _securityLabelNumber?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'securityLabelNumber' at index $index on Contract.Term.Asset.ValuedItem has neither a value nor an id/extension"""
+              "An entry of 'securityLabelNumber' on Contract.Term.Asset.ValuedItem has neither a value nor an id/extension"
             )
         }),
     )
@@ -2358,7 +2358,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
         (kotlin.collections.List(maxOf(linkId?.size ?: 0, _linkId?.size ?: 0)) { index ->
           R4String.of(linkId?.getOrNull(index)?.let { it }, _linkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'linkId' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'linkId' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       status =
@@ -2372,7 +2372,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
           ->
           R4String.of(contextLinkId?.getOrNull(index)?.let { it }, _contextLinkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'contextLinkId' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'contextLinkId' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       occurrence =
@@ -2390,7 +2390,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
             _requesterLinkId?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'requesterLinkId' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'requesterLinkId' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       performerType = performerType ?: listOf(),
@@ -2404,7 +2404,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
             _performerLinkId?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'performerLinkId' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'performerLinkId' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       reasonCode = reasonCode ?: listOf(),
@@ -2413,7 +2413,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
         (kotlin.collections.List(maxOf(reason?.size ?: 0, _reason?.size ?: 0)) { index ->
           R4String.of(reason?.getOrNull(index)?.let { it }, _reason?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'reason' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'reason' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       reasonLinkId =
@@ -2421,7 +2421,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
           ->
           R4String.of(reasonLinkId?.getOrNull(index)?.let { it }, _reasonLinkId?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'reasonLinkId' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'reasonLinkId' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
       note = note ?: listOf(),
@@ -2434,7 +2434,7 @@ internal object ContractTermActionSerializer : KSerializer<Contract.Term.Action>
             _securityLabelNumber?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'securityLabelNumber' at index $index on Contract.Term.Action has neither a value nor an id/extension"""
+              "An entry of 'securityLabelNumber' on Contract.Term.Action has neither a value nor an id/extension"
             )
         }),
     )
@@ -3507,7 +3507,7 @@ internal object ContractSerializer : KSerializer<Contract> {
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
           R4String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'alias' at index $index on Contract has neither a value nor an id/extension"""
+              "An entry of 'alias' on Contract has neither a value nor an id/extension"
             )
         }),
       author = author,

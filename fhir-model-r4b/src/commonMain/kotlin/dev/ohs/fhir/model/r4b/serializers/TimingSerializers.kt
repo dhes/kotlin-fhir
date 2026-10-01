@@ -283,14 +283,14 @@ internal object TimingRepeatSerializer : KSerializer<Timing.Repeat> {
             _dayOfWeek?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'dayOfWeek' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+              "An entry of 'dayOfWeek' on Timing.Repeat has neither a value nor an id/extension"
             )
         }),
       timeOfDay =
         (kotlin.collections.List(maxOf(timeOfDay?.size ?: 0, _timeOfDay?.size ?: 0)) { index ->
           Time.of(timeOfDay?.getOrNull(index)?.let { it }, _timeOfDay?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'timeOfDay' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+              "An entry of 'timeOfDay' on Timing.Repeat has neither a value nor an id/extension"
             )
         }),
       `when` =
@@ -300,7 +300,7 @@ internal object TimingRepeatSerializer : KSerializer<Timing.Repeat> {
             _when?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'when' at index $index on Timing.Repeat has neither a value nor an id/extension"""
+              "An entry of 'when' on Timing.Repeat has neither a value nor an id/extension"
             )
         }),
       offset = UnsignedInt.of(offset, _offset),
@@ -496,7 +496,7 @@ internal object TimingSerializer : KSerializer<Timing> {
             _event?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'event' at index $index on Timing has neither a value nor an id/extension"""
+              "An entry of 'event' on Timing has neither a value nor an id/extension"
             )
         }),
       repeat = repeat,

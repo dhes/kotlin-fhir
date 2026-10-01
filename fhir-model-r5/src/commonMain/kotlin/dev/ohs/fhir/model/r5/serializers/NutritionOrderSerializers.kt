@@ -1758,7 +1758,7 @@ internal object NutritionOrderSerializer : KSerializer<NutritionOrder> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on NutritionOrder has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on NutritionOrder has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -1766,7 +1766,7 @@ internal object NutritionOrderSerializer : KSerializer<NutritionOrder> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on NutritionOrder has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on NutritionOrder has neither a value nor an id/extension"
             )
         }),
       instantiates =
@@ -1774,7 +1774,7 @@ internal object NutritionOrderSerializer : KSerializer<NutritionOrder> {
           ->
           Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiates' at index $index on NutritionOrder has neither a value nor an id/extension"""
+              "An entry of 'instantiates' on NutritionOrder has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

@@ -920,7 +920,7 @@ internal object ServiceRequestSerializer : KSerializer<ServiceRequest> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on ServiceRequest has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on ServiceRequest has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -928,7 +928,7 @@ internal object ServiceRequestSerializer : KSerializer<ServiceRequest> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on ServiceRequest has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on ServiceRequest has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

@@ -168,7 +168,7 @@ internal object CodeSystemFilterSerializer : KSerializer<CodeSystem.Filter> {
             _operator?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'operator' at index $index on CodeSystem.Filter has neither a value nor an id/extension"""
+              "An entry of 'operator' on CodeSystem.Filter has neither a value nor an id/extension"
             )
         }),
       `value` =

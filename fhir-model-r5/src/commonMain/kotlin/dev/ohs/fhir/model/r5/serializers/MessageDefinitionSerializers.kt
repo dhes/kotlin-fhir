@@ -665,7 +665,7 @@ internal object MessageDefinitionSerializer : KSerializer<MessageDefinition> {
         (kotlin.collections.List(maxOf(replaces?.size ?: 0, _replaces?.size ?: 0)) { index ->
           Canonical.of(replaces?.getOrNull(index)?.let { it }, _replaces?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'replaces' at index $index on MessageDefinition has neither a value nor an id/extension"""
+              "An entry of 'replaces' on MessageDefinition has neither a value nor an id/extension"
             )
         }),
       status =
@@ -690,7 +690,7 @@ internal object MessageDefinitionSerializer : KSerializer<MessageDefinition> {
         (kotlin.collections.List(maxOf(parent?.size ?: 0, _parent?.size ?: 0)) { index ->
           Canonical.of(parent?.getOrNull(index)?.let { it }, _parent?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'parent' at index $index on MessageDefinition has neither a value nor an id/extension"""
+              "An entry of 'parent' on MessageDefinition has neither a value nor an id/extension"
             )
         }),
       event =

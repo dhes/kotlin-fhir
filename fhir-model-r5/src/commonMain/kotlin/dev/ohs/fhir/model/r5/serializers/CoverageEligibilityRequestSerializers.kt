@@ -569,7 +569,7 @@ internal object CoverageEligibilityRequestItemSerializer :
             _supportingInfoSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'supportingInfoSequence' at index $index on CoverageEligibilityRequest.Item has neither a value nor an id/extension"""
+              "An entry of 'supportingInfoSequence' on CoverageEligibilityRequest.Item has neither a value nor an id/extension"
             )
         }),
       category = category,
@@ -1047,7 +1047,7 @@ internal object CoverageEligibilityRequestSerializer : KSerializer<CoverageEligi
             _purpose?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'purpose' at index $index on CoverageEligibilityRequest has neither a value nor an id/extension"""
+              "An entry of 'purpose' on CoverageEligibilityRequest has neither a value nor an id/extension"
             )
         }),
       patient =

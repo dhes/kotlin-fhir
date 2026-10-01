@@ -466,7 +466,7 @@ internal object LocationSerializer : KSerializer<Location> {
         (kotlin.collections.List(maxOf(alias?.size ?: 0, _alias?.size ?: 0)) { index ->
           R5String.of(alias?.getOrNull(index)?.let { it }, _alias?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'alias' at index $index on Location has neither a value nor an id/extension"""
+              "An entry of 'alias' on Location has neither a value nor an id/extension"
             )
         }),
       description = Markdown.of(description, _description),

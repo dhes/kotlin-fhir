@@ -488,7 +488,7 @@ internal object AllergyIntoleranceSerializer : KSerializer<AllergyIntolerance> {
             _category?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'category' at index $index on AllergyIntolerance has neither a value nor an id/extension"""
+              "An entry of 'category' on AllergyIntolerance has neither a value nor an id/extension"
             )
         }),
       criticality =

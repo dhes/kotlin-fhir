@@ -634,7 +634,7 @@ internal object ProcedureSerializer : KSerializer<Procedure> {
             _instantiatesCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'instantiatesCanonical' at index $index on Procedure has neither a value nor an id/extension"""
+              "An entry of 'instantiatesCanonical' on Procedure has neither a value nor an id/extension"
             )
         }),
       instantiatesUri =
@@ -642,7 +642,7 @@ internal object ProcedureSerializer : KSerializer<Procedure> {
           index ->
           Uri.of(instantiatesUri?.getOrNull(index)?.let { it }, _instantiatesUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiatesUri' at index $index on Procedure has neither a value nor an id/extension"""
+              "An entry of 'instantiatesUri' on Procedure has neither a value nor an id/extension"
             )
         }),
       basedOn = basedOn ?: listOf(),

@@ -192,7 +192,7 @@ internal object VirtualServiceDetailSerializer : KSerializer<VirtualServiceDetai
           index ->
           Url.of(additionalInfo?.getOrNull(index)?.let { it }, _additionalInfo?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'additionalInfo' at index $index on VirtualServiceDetail has neither a value nor an id/extension"""
+              "An entry of 'additionalInfo' on VirtualServiceDetail has neither a value nor an id/extension"
             )
         }),
       maxParticipants = PositiveInt.of(maxParticipants, _maxParticipants),

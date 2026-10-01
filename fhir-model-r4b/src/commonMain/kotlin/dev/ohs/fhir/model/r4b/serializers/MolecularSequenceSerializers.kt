@@ -831,49 +831,49 @@ internal object MolecularSequenceQualityRocSerializer : KSerializer<MolecularSeq
         (kotlin.collections.List(maxOf(score?.size ?: 0, _score?.size ?: 0)) { index ->
           Integer.of(score?.getOrNull(index)?.let { it }, _score?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'score' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'score' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       numTP =
         (kotlin.collections.List(maxOf(numTP?.size ?: 0, _numTP?.size ?: 0)) { index ->
           Integer.of(numTP?.getOrNull(index)?.let { it }, _numTP?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'numTP' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'numTP' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       numFP =
         (kotlin.collections.List(maxOf(numFP?.size ?: 0, _numFP?.size ?: 0)) { index ->
           Integer.of(numFP?.getOrNull(index)?.let { it }, _numFP?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'numFP' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'numFP' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       numFN =
         (kotlin.collections.List(maxOf(numFN?.size ?: 0, _numFN?.size ?: 0)) { index ->
           Integer.of(numFN?.getOrNull(index)?.let { it }, _numFN?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'numFN' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'numFN' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       precision =
         (kotlin.collections.List(maxOf(precision?.size ?: 0, _precision?.size ?: 0)) { index ->
           Decimal.of(precision?.getOrNull(index)?.let { it }, _precision?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'precision' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'precision' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       sensitivity =
         (kotlin.collections.List(maxOf(sensitivity?.size ?: 0, _sensitivity?.size ?: 0)) { index ->
           Decimal.of(sensitivity?.getOrNull(index)?.let { it }, _sensitivity?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'sensitivity' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'sensitivity' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
       fMeasure =
         (kotlin.collections.List(maxOf(fMeasure?.size ?: 0, _fMeasure?.size ?: 0)) { index ->
           Decimal.of(fMeasure?.getOrNull(index)?.let { it }, _fMeasure?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'fMeasure' at index $index on MolecularSequence.Quality.Roc has neither a value nor an id/extension"""
+              "An entry of 'fMeasure' on MolecularSequence.Quality.Roc has neither a value nor an id/extension"
             )
         }),
     )

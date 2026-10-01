@@ -1093,7 +1093,7 @@ internal object ClaimInsuranceSerializer : KSerializer<Claim.Insurance> {
         (kotlin.collections.List(maxOf(preAuthRef?.size ?: 0, _preAuthRef?.size ?: 0)) { index ->
           R4bString.of(preAuthRef?.getOrNull(index)?.let { it }, _preAuthRef?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'preAuthRef' at index $index on Claim.Insurance has neither a value nor an id/extension"""
+              "An entry of 'preAuthRef' on Claim.Insurance has neither a value nor an id/extension"
             )
         }),
       claimResponse = claimResponse,
@@ -1601,7 +1601,7 @@ internal object ClaimItemSerializer : KSerializer<Claim.Item> {
             _careTeamSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'careTeamSequence' at index $index on Claim.Item has neither a value nor an id/extension"""
+              "An entry of 'careTeamSequence' on Claim.Item has neither a value nor an id/extension"
             )
         }),
       diagnosisSequence =
@@ -1613,7 +1613,7 @@ internal object ClaimItemSerializer : KSerializer<Claim.Item> {
             _diagnosisSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'diagnosisSequence' at index $index on Claim.Item has neither a value nor an id/extension"""
+              "An entry of 'diagnosisSequence' on Claim.Item has neither a value nor an id/extension"
             )
         }),
       procedureSequence =
@@ -1625,7 +1625,7 @@ internal object ClaimItemSerializer : KSerializer<Claim.Item> {
             _procedureSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'procedureSequence' at index $index on Claim.Item has neither a value nor an id/extension"""
+              "An entry of 'procedureSequence' on Claim.Item has neither a value nor an id/extension"
             )
         }),
       informationSequence =
@@ -1637,7 +1637,7 @@ internal object ClaimItemSerializer : KSerializer<Claim.Item> {
             _informationSequence?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'informationSequence' at index $index on Claim.Item has neither a value nor an id/extension"""
+              "An entry of 'informationSequence' on Claim.Item has neither a value nor an id/extension"
             )
         }),
       revenue = revenue,

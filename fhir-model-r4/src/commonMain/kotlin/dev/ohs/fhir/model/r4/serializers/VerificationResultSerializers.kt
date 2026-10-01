@@ -755,7 +755,7 @@ internal object VerificationResultSerializer : KSerializer<VerificationResult> {
             _targetLocation?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'targetLocation' at index $index on VerificationResult has neither a value nor an id/extension"""
+              "An entry of 'targetLocation' on VerificationResult has neither a value nor an id/extension"
             )
         }),
       need = need,

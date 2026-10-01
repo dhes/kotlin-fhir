@@ -537,7 +537,7 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
             _base?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'base' at index $index on SearchParameter has neither a value nor an id/extension"""
+              "An entry of 'base' on SearchParameter has neither a value nor an id/extension"
             )
         }),
       type =
@@ -557,7 +557,7 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
             _target?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'target' at index $index on SearchParameter has neither a value nor an id/extension"""
+              "An entry of 'target' on SearchParameter has neither a value nor an id/extension"
             )
         }),
       multipleOr = R4Boolean.of(multipleOr, _multipleOr),
@@ -569,7 +569,7 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
             _comparator?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'comparator' at index $index on SearchParameter has neither a value nor an id/extension"""
+              "An entry of 'comparator' on SearchParameter has neither a value nor an id/extension"
             )
         }),
       modifier =
@@ -579,14 +579,14 @@ internal object SearchParameterSerializer : KSerializer<SearchParameter> {
             _modifier?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'modifier' at index $index on SearchParameter has neither a value nor an id/extension"""
+              "An entry of 'modifier' on SearchParameter has neither a value nor an id/extension"
             )
         }),
       chain =
         (kotlin.collections.List(maxOf(chain?.size ?: 0, _chain?.size ?: 0)) { index ->
           R4String.of(chain?.getOrNull(index)?.let { it }, _chain?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'chain' at index $index on SearchParameter has neither a value nor an id/extension"""
+              "An entry of 'chain' on SearchParameter has neither a value nor an id/extension"
             )
         }),
       component = component ?: listOf(),

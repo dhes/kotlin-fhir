@@ -180,7 +180,7 @@ internal object PractitionerRoleAvailableTimeSerializer :
             _daysOfWeek?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'daysOfWeek' at index $index on PractitionerRole.AvailableTime has neither a value nor an id/extension"""
+              "An entry of 'daysOfWeek' on PractitionerRole.AvailableTime has neither a value nor an id/extension"
             )
         }),
       allDay = R4bBoolean.of(allDay, _allDay),

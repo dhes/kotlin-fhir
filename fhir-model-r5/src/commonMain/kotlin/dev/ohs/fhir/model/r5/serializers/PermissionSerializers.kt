@@ -794,7 +794,7 @@ internal object PermissionSerializer : KSerializer<Permission> {
             _date?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'date' at index $index on Permission has neither a value nor an id/extension"""
+              "An entry of 'date' on Permission has neither a value nor an id/extension"
             )
         }),
       validity = validity,

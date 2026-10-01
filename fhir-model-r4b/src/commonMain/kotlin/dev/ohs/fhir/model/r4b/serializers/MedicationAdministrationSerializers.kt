@@ -573,7 +573,7 @@ internal object MedicationAdministrationSerializer : KSerializer<MedicationAdmin
           ->
           Uri.of(instantiates?.getOrNull(index)?.let { it }, _instantiates?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'instantiates' at index $index on MedicationAdministration has neither a value nor an id/extension"""
+              "An entry of 'instantiates' on MedicationAdministration has neither a value nor an id/extension"
             )
         }),
       partOf = partOf ?: listOf(),

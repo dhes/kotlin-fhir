@@ -468,7 +468,7 @@ internal object ProvenanceSerializer : KSerializer<Provenance> {
         (kotlin.collections.List(maxOf(policy?.size ?: 0, _policy?.size ?: 0)) { index ->
           Uri.of(policy?.getOrNull(index)?.let { it }, _policy?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'policy' at index $index on Provenance has neither a value nor an id/extension"""
+              "An entry of 'policy' on Provenance has neither a value nor an id/extension"
             )
         }),
       location = location,

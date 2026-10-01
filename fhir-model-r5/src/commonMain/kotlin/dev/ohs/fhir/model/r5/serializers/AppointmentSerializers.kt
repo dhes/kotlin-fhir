@@ -432,7 +432,7 @@ internal object AppointmentRecurrenceTemplateSerializer :
             _occurrenceDate?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'occurrenceDate' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+              "An entry of 'occurrenceDate' on Appointment.RecurrenceTemplate has neither a value nor an id/extension"
             )
         }),
       weeklyTemplate = weeklyTemplate,
@@ -446,7 +446,7 @@ internal object AppointmentRecurrenceTemplateSerializer :
             _excludingDate?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'excludingDate' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+              "An entry of 'excludingDate' on Appointment.RecurrenceTemplate has neither a value nor an id/extension"
             )
         }),
       excludingRecurrenceId =
@@ -458,7 +458,7 @@ internal object AppointmentRecurrenceTemplateSerializer :
             _excludingRecurrenceId?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'excludingRecurrenceId' at index $index on Appointment.RecurrenceTemplate has neither a value nor an id/extension"""
+              "An entry of 'excludingRecurrenceId' on Appointment.RecurrenceTemplate has neither a value nor an id/extension"
             )
         }),
     )

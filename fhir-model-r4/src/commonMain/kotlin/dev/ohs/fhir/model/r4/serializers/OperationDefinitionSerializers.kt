@@ -252,7 +252,7 @@ internal object OperationDefinitionParameterSerializer :
             _targetProfile?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'targetProfile' at index $index on OperationDefinition.Parameter has neither a value nor an id/extension"""
+              "An entry of 'targetProfile' on OperationDefinition.Parameter has neither a value nor an id/extension"
             )
         }),
       searchType = Enumeration.of(searchType?.let { SearchParamType.fromCode(it) }, _searchType),
@@ -667,7 +667,7 @@ internal object OperationDefinitionOverloadSerializer : KSerializer<OperationDef
           ->
           R4String.of(parameterName?.getOrNull(index)?.let { it }, _parameterName?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'parameterName' at index $index on OperationDefinition.Overload has neither a value nor an id/extension"""
+              "An entry of 'parameterName' on OperationDefinition.Overload has neither a value nor an id/extension"
             )
         }),
       comment = R4String.of(comment, _comment),
@@ -1073,7 +1073,7 @@ internal object OperationDefinitionSerializer : KSerializer<OperationDefinition>
             _resource?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'resource' at index $index on OperationDefinition has neither a value nor an id/extension"""
+              "An entry of 'resource' on OperationDefinition has neither a value nor an id/extension"
             )
         }),
       system =

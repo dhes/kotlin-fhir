@@ -1415,7 +1415,7 @@ internal object QuestionnaireSerializer : KSerializer<Questionnaire> {
         (kotlin.collections.List(maxOf(derivedFrom?.size ?: 0, _derivedFrom?.size ?: 0)) { index ->
           Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFrom' at index $index on Questionnaire has neither a value nor an id/extension"""
+              "An entry of 'derivedFrom' on Questionnaire has neither a value nor an id/extension"
             )
         }),
       status =
@@ -1429,7 +1429,7 @@ internal object QuestionnaireSerializer : KSerializer<Questionnaire> {
             _subjectType?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'subjectType' at index $index on Questionnaire has neither a value nor an id/extension"""
+              "An entry of 'subjectType' on Questionnaire has neither a value nor an id/extension"
             )
         }),
       date = DateTime.of(date?.let { FhirDateTime.fromString(it) }, _date),

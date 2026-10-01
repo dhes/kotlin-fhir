@@ -221,7 +221,7 @@ internal object ArtifactAssessmentContentSerializer : KSerializer<ArtifactAssess
         (kotlin.collections.List(maxOf(path?.size ?: 0, _path?.size ?: 0)) { index ->
           Uri.of(path?.getOrNull(index)?.let { it }, _path?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'path' at index $index on ArtifactAssessment.Content has neither a value nor an id/extension"""
+              "An entry of 'path' on ArtifactAssessment.Content has neither a value nor an id/extension"
             )
         }),
       relatedArtifact = relatedArtifact ?: listOf(),

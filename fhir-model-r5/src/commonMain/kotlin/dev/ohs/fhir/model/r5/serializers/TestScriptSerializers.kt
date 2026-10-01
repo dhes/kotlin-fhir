@@ -626,7 +626,7 @@ internal object TestScriptMetadataCapabilitySerializer :
         (kotlin.collections.List(maxOf(origin?.size ?: 0, _origin?.size ?: 0)) { index ->
           Integer.of(origin?.getOrNull(index)?.let { it }, _origin?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'origin' at index $index on TestScript.Metadata.Capability has neither a value nor an id/extension"""
+              "An entry of 'origin' on TestScript.Metadata.Capability has neither a value nor an id/extension"
             )
         }),
       destination = Integer.of(destination, _destination),
@@ -634,7 +634,7 @@ internal object TestScriptMetadataCapabilitySerializer :
         (kotlin.collections.List(maxOf(link?.size ?: 0, _link?.size ?: 0)) { index ->
           Uri.of(link?.getOrNull(index)?.let { it }, _link?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'link' at index $index on TestScript.Metadata.Capability has neither a value nor an id/extension"""
+              "An entry of 'link' on TestScript.Metadata.Capability has neither a value nor an id/extension"
             )
         }),
       capabilities =
@@ -3060,7 +3060,7 @@ internal object TestScriptSerializer : KSerializer<TestScript> {
         (kotlin.collections.List(maxOf(profile?.size ?: 0, _profile?.size ?: 0)) { index ->
           Canonical.of(profile?.getOrNull(index)?.let { it }, _profile?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'profile' at index $index on TestScript has neither a value nor an id/extension"""
+              "An entry of 'profile' on TestScript has neither a value nor an id/extension"
             )
         }),
       variable = variable ?: listOf(),

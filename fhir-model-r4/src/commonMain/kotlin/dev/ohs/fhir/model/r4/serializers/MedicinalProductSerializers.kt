@@ -1103,7 +1103,7 @@ internal object MedicinalProductSerializer : KSerializer<MedicinalProduct> {
             _specialMeasures?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'specialMeasures' at index $index on MedicinalProduct has neither a value nor an id/extension"""
+              "An entry of 'specialMeasures' on MedicinalProduct has neither a value nor an id/extension"
             )
         }),
       paediatricUseIndicator = paediatricUseIndicator,

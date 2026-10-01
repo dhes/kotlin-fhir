@@ -277,7 +277,7 @@ internal object HealthcareServiceAvailableTimeSerializer :
             _daysOfWeek?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'daysOfWeek' at index $index on HealthcareService.AvailableTime has neither a value nor an id/extension"""
+              "An entry of 'daysOfWeek' on HealthcareService.AvailableTime has neither a value nor an id/extension"
             )
         }),
       allDay = R4bBoolean.of(allDay, _allDay),

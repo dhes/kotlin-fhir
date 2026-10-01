@@ -874,7 +874,7 @@ internal object StructureDefinitionSerializer : KSerializer<StructureDefinition>
             _contextInvariant?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'contextInvariant' at index $index on StructureDefinition has neither a value nor an id/extension"""
+              "An entry of 'contextInvariant' on StructureDefinition has neither a value nor an id/extension"
             )
         }),
       type =

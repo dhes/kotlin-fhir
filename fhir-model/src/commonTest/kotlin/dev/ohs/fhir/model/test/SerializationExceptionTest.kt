@@ -147,7 +147,7 @@ class SerializationExceptionTest :
               testJson.decodeFromString(resourceSerializer, patientWithNullGivenJson)
             }
           assertEquals(
-            "Element 'given' at index 1 on HumanName has neither a value nor an id/extension",
+            "An entry of 'given' on HumanName has neither a value nor an id/extension",
             exception.message,
           )
         }
@@ -158,7 +158,7 @@ class SerializationExceptionTest :
               testJson.decodeFromString(resourceSerializer, patientWithMismatchedGivenLengthsJson)
             }
           assertEquals(
-            "Element 'given' at index 1 on HumanName has neither a value nor an id/extension",
+            "An entry of 'given' on HumanName has neither a value nor an id/extension",
             exception.message,
           )
         }
@@ -169,7 +169,7 @@ class SerializationExceptionTest :
               testJson.decodeFromString(resourceSerializer, searchParameterWithNullBaseJson)
             }
           assertEquals(
-            "Element 'base' at index 1 on SearchParameter has neither a value nor an id/extension",
+            "An entry of 'base' on SearchParameter has neither a value nor an id/extension",
             exception.message,
           )
         }

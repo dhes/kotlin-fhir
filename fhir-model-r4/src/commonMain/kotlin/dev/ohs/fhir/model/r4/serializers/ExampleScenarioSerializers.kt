@@ -1501,7 +1501,7 @@ internal object ExampleScenarioSerializer : KSerializer<ExampleScenario> {
         (kotlin.collections.List(maxOf(workflow?.size ?: 0, _workflow?.size ?: 0)) { index ->
           Canonical.of(workflow?.getOrNull(index)?.let { it }, _workflow?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'workflow' at index $index on ExampleScenario has neither a value nor an id/extension"""
+              "An entry of 'workflow' on ExampleScenario has neither a value nor an id/extension"
             )
         }),
     )

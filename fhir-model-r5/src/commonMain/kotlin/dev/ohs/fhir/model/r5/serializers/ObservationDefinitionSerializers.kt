@@ -412,7 +412,7 @@ internal object ObservationDefinitionComponentSerializer :
             _permittedDataType?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'permittedDataType' at index $index on ObservationDefinition.Component has neither a value nor an id/extension"""
+              "An entry of 'permittedDataType' on ObservationDefinition.Component has neither a value nor an id/extension"
             )
         }),
       permittedUnit = permittedUnit ?: listOf(),
@@ -1011,7 +1011,7 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
             _derivedFromCanonical?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'derivedFromCanonical' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFromCanonical' on ObservationDefinition has neither a value nor an id/extension"
             )
         }),
       derivedFromUri =
@@ -1019,7 +1019,7 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
           index ->
           Uri.of(derivedFromUri?.getOrNull(index)?.let { it }, _derivedFromUri?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFromUri' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFromUri' on ObservationDefinition has neither a value nor an id/extension"
             )
         }),
       subject = subject ?: listOf(),
@@ -1041,7 +1041,7 @@ internal object ObservationDefinitionSerializer : KSerializer<ObservationDefinit
             _permittedDataType?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'permittedDataType' at index $index on ObservationDefinition has neither a value nor an id/extension"""
+              "An entry of 'permittedDataType' on ObservationDefinition has neither a value nor an id/extension"
             )
         }),
       multipleResultsAllowed = R5Boolean.of(multipleResultsAllowed, _multipleResultsAllowed),

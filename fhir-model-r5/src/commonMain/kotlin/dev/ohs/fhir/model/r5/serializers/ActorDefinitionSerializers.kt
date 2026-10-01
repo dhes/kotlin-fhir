@@ -404,7 +404,7 @@ internal object ActorDefinitionSerializer : KSerializer<ActorDefinition> {
         (kotlin.collections.List(maxOf(reference?.size ?: 0, _reference?.size ?: 0)) { index ->
           Url.of(reference?.getOrNull(index)?.let { it }, _reference?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'reference' at index $index on ActorDefinition has neither a value nor an id/extension"""
+              "An entry of 'reference' on ActorDefinition has neither a value nor an id/extension"
             )
         }),
       capabilities = Canonical.of(capabilities, _capabilities),
@@ -412,7 +412,7 @@ internal object ActorDefinitionSerializer : KSerializer<ActorDefinition> {
         (kotlin.collections.List(maxOf(derivedFrom?.size ?: 0, _derivedFrom?.size ?: 0)) { index ->
           Canonical.of(derivedFrom?.getOrNull(index)?.let { it }, _derivedFrom?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'derivedFrom' at index $index on ActorDefinition has neither a value nor an id/extension"""
+              "An entry of 'derivedFrom' on ActorDefinition has neither a value nor an id/extension"
             )
         }),
     )

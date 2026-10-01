@@ -1110,7 +1110,7 @@ internal object SubstanceSourceMaterialSerializer : KSerializer<SubstanceSourceM
             _parentSubstanceName?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'parentSubstanceName' at index $index on SubstanceSourceMaterial has neither a value nor an id/extension"""
+              "An entry of 'parentSubstanceName' on SubstanceSourceMaterial has neither a value nor an id/extension"
             )
         }),
       countryOfOrigin = countryOfOrigin ?: listOf(),
@@ -1123,7 +1123,7 @@ internal object SubstanceSourceMaterialSerializer : KSerializer<SubstanceSourceM
             _geographicalLocation?.getOrNull(index),
           )
             ?: throw SerializationException(
-              """Element 'geographicalLocation' at index $index on SubstanceSourceMaterial has neither a value nor an id/extension"""
+              "An entry of 'geographicalLocation' on SubstanceSourceMaterial has neither a value nor an id/extension"
             )
         }),
       developmentStage = developmentStage,

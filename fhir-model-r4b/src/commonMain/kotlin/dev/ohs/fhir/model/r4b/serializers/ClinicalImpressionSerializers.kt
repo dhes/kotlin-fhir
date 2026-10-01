@@ -562,7 +562,7 @@ internal object ClinicalImpressionSerializer : KSerializer<ClinicalImpression> {
         (kotlin.collections.List(maxOf(protocol?.size ?: 0, _protocol?.size ?: 0)) { index ->
           Uri.of(protocol?.getOrNull(index)?.let { it }, _protocol?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'protocol' at index $index on ClinicalImpression has neither a value nor an id/extension"""
+              "An entry of 'protocol' on ClinicalImpression has neither a value nor an id/extension"
             )
         }),
       summary = R4bString.of(summary, _summary),

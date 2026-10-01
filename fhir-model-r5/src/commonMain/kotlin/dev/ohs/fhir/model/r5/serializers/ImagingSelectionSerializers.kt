@@ -268,7 +268,7 @@ internal object ImagingSelectionInstanceSerializer : KSerializer<ImagingSelectio
         (kotlin.collections.List(maxOf(subset?.size ?: 0, _subset?.size ?: 0)) { index ->
           R5String.of(subset?.getOrNull(index)?.let { it }, _subset?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'subset' at index $index on ImagingSelection.Instance has neither a value nor an id/extension"""
+              "An entry of 'subset' on ImagingSelection.Instance has neither a value nor an id/extension"
             )
         }),
       imageRegion2D = imageRegion2D ?: listOf(),
@@ -440,7 +440,7 @@ internal object ImagingSelectionInstanceImageRegion2DSerializer :
         (kotlin.collections.List(maxOf(coordinate?.size ?: 0, _coordinate?.size ?: 0)) { index ->
           Decimal.of(coordinate?.getOrNull(index)?.let { it }, _coordinate?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'coordinate' at index $index on ImagingSelection.Instance.ImageRegion2D has neither a value nor an id/extension"""
+              "An entry of 'coordinate' on ImagingSelection.Instance.ImageRegion2D has neither a value nor an id/extension"
             )
         }),
     )
@@ -577,7 +577,7 @@ internal object ImagingSelectionInstanceImageRegion3DSerializer :
         (kotlin.collections.List(maxOf(coordinate?.size ?: 0, _coordinate?.size ?: 0)) { index ->
           Decimal.of(coordinate?.getOrNull(index)?.let { it }, _coordinate?.getOrNull(index))
             ?: throw SerializationException(
-              """Element 'coordinate' at index $index on ImagingSelection.Instance.ImageRegion3D has neither a value nor an id/extension"""
+              "An entry of 'coordinate' on ImagingSelection.Instance.ImageRegion3D has neither a value nor an id/extension"
             )
         }),
     )
